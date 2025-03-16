@@ -1,0 +1,282 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+body {
+    font-size:14px;
+}
+body, header, footer, section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding-bottom: 5px;
+}
+h6{
+    font-size: 1.2em;
+}
+h5{
+    font-size: 1.4em;
+}
+h4{
+    font-size: 1.6em;
+}
+h3{
+    font-size: 1.8em;
+}
+h2{
+    font-size: 2em;
+}
+h1{
+    font-size: 2.2em;
+}
+header, footer {
+    padding:10px 0px;
+}
+
+nav {
+    background: rgba(68, 132, 236, 0.1);
+    padding: 15px 0px;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+nav ul li {
+    padding: 0px 10px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+footer {
+    text-align: center;
+    font-size: 10px;
+}
+a{
+    text-decoration:none;
+    color: rgb(65, 11, 201);
+    position:relative;
+    padding:0;
+}
+
+a:before{
+    content: " ";
+    padding-right: 5px;
+    width:20px;
+    height:2px;
+    margin: 0;
+    background:none;
+    display:block;
+    position:absolute;
+    left:1px;
+    bottom:-2px;
+    transform: translateX(-100%);
+    transition: all .2s;
+
+}
+a:hover:before{
+    transform: translateX(0);
+    background: rgb(65, 11, 201);
+
+}
+#logo{
+    background: rgb(65, 11, 201);
+    color:#fff;
+    display:inline;
+}
+
+.sectiune {
+    width: 100%;
+    min-width:100%;
+    margin-bottom: 30px;
+    background: rgba(68, 132, 236, 0.1);
+    padding: 20px 0;
+    margin: 30px 0;
+}
+h2 {
+    position: relative;
+    margin-bottom: 20px;
+}
+h2:before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: black;
+    margin: 10px 0;
+    position: absolute;
+    bottom: -10px;
+    transition: width 0.3s;
+}
+h2:hover:before {
+    width: 140px;
+}
+#despre {
+    margin: 10px 0;
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+}
+table th, table td {
+    border: 1px solid black;
+    padding: 10px;
+}
+table th, table tr:nth-child(odd) {
+    background: rgba(68, 132, 236, 0.1);
+}
+table tr:nth-child(even) {
+    background: rgba(68, 132, 236, 0.3);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 50%;
+    margin: 30px auto;
+}
+form input, form textarea, form select {
+    padding: 10px;
+    border: 1px solid black;
+    width: 100%;
+}
+form input[type="radio"], form input[type="checkbox"] {
+    width: auto;
+}
+form button {
+    background: rgba(68, 132, 236, 0.1);
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 14px;
+    transition: background 0.2s;
+    border-radius: 5px;
+}
+form button:hover {
+    background: rgba(68, 132, 236, 0.3);
+}
+.huge-title {
+    font-size: 60px;
+    text-align: left;
+    margin: 30px 0;
+    font-family: 'Times New Roman', serif;
+    animation: moveAnimation 1s;
+}
+#postare img {
+    width: 100%;
+    height: auto;
+}
+.continut-postare {
+    padding: 10px 0;
+    width: 100%;
+}
+@keyframes moveAnimation {
+    0% { transform: translateX(-100000px); }
+    50% { transform: translateX(100px); }
+    100% { transform: translateX(0); }
+}
+@keyframes moveDown {
+    0% { transform: translateY(-100000px); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+.page-title {
+    animation: moveDown 1s;
+}
+@media screen and (min-width: 1024px) {
+    .huge-title {
+        font-size: 40px;
+        margin: 10px 0;
+    }
+    #postare > img {
+        margin: 20px 0;
+    }
+    #postare {
+        padding: 10px;
+    }
+    #despre {
+        margin: 0;
+        max-width: 100%;
+    }
+    #despre img {
+        width: 100%;
+        height: auto;
+    }
+    form {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .article-list article {
+        padding: 10px;
+        width:100%;
+        float:clear;
+    }
+    .huge-title {
+        font-size: 40px;
+        padding:2px;
+        margin:0px;
+    }
+    #postare > img {
+        margin: 20px 0;
+    }
+    body, section, header, footer {
+        max-width: 100%;
+    }
+    #postare {
+        padding: 15px;
+    }
+    #postare  img {
+        margin: 10px 0;
+        width:100%;
+    }
+    #despre {
+        max-width: calc(100% - 40px);
+        padding:10px;
+    }
+    form{
+        width:90%;
+    }
+    section.sectiune {
+        padding: 10px;
+        width: calc(100% - 20px);
+    }
+    table{
+        width:90%;
+    }
+}
+@media screen and (max-width: 480px) {
+    body, section, header, footer {
+        max-width: 100%;
+    }
+    nav {
+        padding: 0;
+        background: none;
+        margin-bottom: 10px;
+    }
+    #postare {
+        padding: 10px;
+    }
+    #postare > img {
+        margin: 10px 0;
+    }
+    .huge-title {
+        font-size: 30px;
+    }
+    #despre {
+        padding: 10px;
+    }
+    #despre section {
+        padding: 10px;
+    }
+    form{
+        width: 86%;
+    }
+    #despre img{
+        width:100%;
+    }
+}
