@@ -1,4 +1,4 @@
-import { Postari } from "../components/postari";
+import { Postari } from "../components/Postari";
 
 export default function Home() {
     return <Postari />

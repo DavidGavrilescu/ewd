@@ -1,5 +1,5 @@
-import { CardArticol } from "../components/postari";
-import { articole } from "../data/emoji";
+import { CardArticol } from "../components/Postari";
+import { articole } from "../data/data";
 
 export interface IArticolProps {
   titlu: string;
@@ -9,25 +9,42 @@ export interface IArticolProps {
   data?: string;
   etichete?: string[];
 }
-export default function Articol({ titlu,
-  poza, peScurt, continut, data, etichete
+export default function Articol({
+  titlu,
+  poza,
+  peScurt,
+  continut,
+  data,
+  etichete,
 }: IArticolProps) {
   return (
     <div id="articol">
       <article>
         {poza && <img src={poza} alt={titlu} />}
         <h1 className="huge-title">{titlu}</h1>
-        <i>{peScurt}</i><br />
-        <b>Postat in data de: </b><data>{data}</data><br />
-        <p><b>Postarea contine informatii despre</b>: {etichete?.map(eticheta => <b>{eticheta}</b>)}</p>
+        <i>{peScurt}</i>
+        <br />
+        <b>Postat in data de: </b>
+        <data>{data}</data>
+        <br />
+        <p>
+          <b>Postarea contine informatii despre</b>:{" "}
+          {etichete?.map((eticheta) => <b>{eticheta}</b>)}
+        </p>
         <hr />
-        <section className="continut-postare" dangerouslySetInnerHTML={{ __html: continut }} />
+        <section
+          className="continut-postare"
+          dangerouslySetInnerHTML={{ __html: continut }}
+        />
       </article>
       <aside>
         <h3>Articole similare</h3>
-        <div className="card-container simplified">{articole.slice(0,3).map(articol => <CardArticol {...articol} />)}
+        <div className="card-container simplified">
+          {articole.slice(0, 3).map((articol, key) => (
+            <CardArticol key={key} {...articol} />
+          ))}
         </div>
       </aside>
     </div>
-  )
+  );
 }

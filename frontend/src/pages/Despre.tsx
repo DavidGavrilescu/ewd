@@ -1,15 +1,22 @@
 export default function Despre() {
-    return <article id="despre">
+  return (
+    <article id="despre">
       <h2 className="page-title">Despre</h2>
-      <p>Acest blog este despre ceva anume doar ca inca nu este clar despre ce.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg"
-        alt="O imagine cu o pisica" />
+      <p>
+        Acest blog este despre ceva anume doar ca inca nu este clar despre ce.
+      </p>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg"
+        alt="O imagine cu o pisica"
+      />
       <section className="sectiune">
         <h2>introducere</h2>
         <h3>Despre autor</h3>
         <p>Autorul acestui blog este un om care are ceva de spus.</p>
         <h3>contact</h3>
-        <p>Pentru a lua legatura cu autorul acestui blog, puteti trimite un email la adresa:
+        <p>
+          Pentru a lua legatura cu autorul acestui blog, puteti trimite un email
+          la adresa:
           <a href="mailto:meow_meow@google.com">meow_meow@google.com</a>
         </p>
       </section>
@@ -40,5 +47,5 @@ export default function Despre() {
         </table>
       </section>
     </article>
-  }
-  
+  );
+}

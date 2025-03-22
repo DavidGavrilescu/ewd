@@ -7,7 +7,8 @@ import Despre from "./pages/Despre";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Container from "./components/Container";
-import { propsArticol } from "./data/emoji";
+import { propsArticol } from "./data/data";
+import { Fragment } from "react/jsx-runtime";
 
 function NotFound() {
   return <h1>404 - Pagina nu există</h1>;
@@ -15,7 +16,7 @@ function NotFound() {
 
 export default function App() {
   return (
-    <div>
+    <Fragment>
       <Header />
       <Container id="main">
         <Routes>
@@ -28,6 +29,6 @@ export default function App() {
         </Routes>
       </Container>
       <Footer />
-    </div>
+    </Fragment>
   );
 }

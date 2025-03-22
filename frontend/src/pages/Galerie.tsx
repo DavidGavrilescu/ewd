@@ -3,5 +3,5 @@ export default function Galerie() {
     <div id="galerie">
       <h1>Galerie</h1>
     </div>
-  )
+  );
 }

@@ -8,17 +8,19 @@ header.mainHeader {
     left: 0px;
     z-index: 100;
     box-sizing: border-box;
+
     ::selection {
         background-color: transparent;
     }
 
-    #mainNav{
-        &.open{
-            display:block;
+    #mainNav {
+        &.open {
+            display: block;
             width: 100%;
-            text-align:left;
+            text-align: left;
         }
     }
+
     .container {
         display: flex;
         justify-content: space-between;
@@ -35,8 +37,8 @@ header.mainHeader {
 
         @media (max-width: 768px) {
             box-sizing: border-box;
-            padding-left:10px;
-            margin-bottom:0px !important;
+            padding-left: 10px;
+            margin-bottom: 0px !important;
         }
 
         &:hover {
@@ -53,26 +55,27 @@ header.mainHeader {
     }
 
     #hamburger {
-        position:fixed;
-        top:14px;
-        right:10px;
-        width: 34px; 
-        height: 30px; 
+        position: fixed;
+        top: 14px;
+        right: 10px;
+        width: 34px;
+        height: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between; 
+        justify-content: space-between;
         cursor: pointer;
-        transition: transform 0.3s ease-in-out; 
-        margin-right:10px;
+        transition: transform 0.1s;
+        margin-right: 10px;
+
         @media (min-width: 768px) {
-            display:none;
+            display: none;
         }
 
         .line {
             width: 100%;
             height: 5px;
-            background-color: rgba(255,255,255,.8);
-            transition: all 0.3s ease-in-out; 
+            background-color: rgba(255, 255, 255, .8);
+            transition: all 0.1s;
             border-radius: 1px;
         }
 
@@ -88,7 +91,6 @@ header.mainHeader {
             }
 
             .line:nth-child(3) {
-
                 transform: translateY(-11px) rotate(-45deg);
             }
         }
