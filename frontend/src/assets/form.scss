@@ -1,0 +1,83 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 95%;
+    max-width: 900px;
+
+    input,
+    textarea,
+    select {
+        padding: 10px;
+        border: 1px solid black;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle;
+
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    p:has(input[type="radio"]) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        label {
+            margin-bottom: 0;
+        }
+    }
+
+    p:has(input[type="checkbox"]) {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        input[type="checkbox"] {
+            margin-right: 0;
+        }
+
+        label {
+            margin-bottom: 0;
+        }
+
+    }
+
+    p:has(input[type="checkbox"]),
+    p:has(button) {
+        margin-bottom: 0;
+    }
+
+
+    button {
+        background: rgba(88, 144, 177, .1);
+        border-radius: 5px;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        color: #ddd;
+        font-weight: bold;
+        font-size: 1.3em;
+        padding: 10px 30px;
+
+        &:hover {
+            background: rgba(68, 132, 236, 0.3);
+        }
+    }
+
+    @media (max-width: 600px) {
+        margin: 0 auto;
+
+    }
+}

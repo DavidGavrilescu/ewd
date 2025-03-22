@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body,
+html,
+div {
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+}
+
+body {
+    font-size: 14px;
+    background: #161a24;
+    color: #fefefe;
+
+    ::selection {
+        background: rgb(105, 120, 206);
+        color: #fff;
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    &#main {
+        margin-top: 50px;
+    }
+}
+
+.padding-margin {
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    @extend .padding-margin;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+h1 {
+    font-size: 2.2em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.6em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+h6 {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    bottom: -2px;
+    transform: translateX(-100%);
+    transition: all 0.2s;
+
+    &:before {
+        content: "";
+        padding-right: 5px;
+        width: 20px;
+        height: 2px;
+        margin: 0;
+        background: none;
+        display: block;
+        position: absolute;
+        left: 1px;
+        bottom: -2px;
+        transform: translateX(-100%);
+        transition: all 0.2s;
+    }
+
+    &:hover:before {
+        transform: translateX(0);
+        background: rgb(65, 11, 201);
+    }
+}
+
+.sectiune {
+    width: 100%;
+    min-width: 100%;
+    margin-bottom: 30px;
+    background: rgba(68, 132, 236, 0.1);
+}
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+
+    th,
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    th,
+    tr:nth-child(odd) {
+        background: rgba(68, 132, 236, 0.1);
+    }
+
+    tr:nth-child(even) {
+        background: rgba(68, 132, 236, 0.3);
+    }
+}
+
+.huge-title {
+    font-size: 60px;
+    text-align: left;
+    margin: 30px 0;
+    font-family: 'Times New Roman', serif;
+    animation: moveAnimation 1s;
+}
+
+.page-title {
+    animation: moveDown .4s;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.container {
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 992px) {
+        max-width: 720px;
+        padding: 0px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+
+    @media (max-width: 576px) {
+        max-width: 100%;
+    }
+}
+
+table {
+    @media (max-width: 768px) {
+        width: 100%; //full width table
+    }
+}
