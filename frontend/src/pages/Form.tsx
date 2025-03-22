@@ -12,7 +12,7 @@ const Form: React.FC = () => {
     <form id="form" onSubmit={handleFormSubmit}>
       <h2 className="page-title">Pagina formularului</h2>
       <p>
-        Nu este clar ce facem in acest formular dar vom afla in tema urmatoare
+        Nu este clar ce facem in acest formular dar vom afla in tema urmatoare.
       </p>
       <p>
         <label>
