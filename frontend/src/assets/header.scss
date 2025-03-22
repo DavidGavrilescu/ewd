@@ -6,12 +6,19 @@ header.mainHeader {
     width: 100%;
     top: 0px;
     left: 0px;
-    z-index: 2147483647;
-
-    ::selection{
-        background-color:transparent;
+    z-index: 100;
+    box-sizing: border-box;
+    ::selection {
+        background-color: transparent;
     }
 
+    #mainNav{
+        &.open{
+            display:block;
+            width: 100%;
+            text-align:left;
+        }
+    }
     .container {
         display: flex;
         justify-content: space-between;
@@ -25,11 +32,19 @@ header.mainHeader {
         text-transform: uppercase;
         font-weight: 900;
         cursor: pointer;
+
+        @media (max-width: 768px) {
+            box-sizing: border-box;
+            padding-left:10px;
+            margin-bottom:0px !important;
+        }
+
         &:hover {
             #dot {
                 color: #f00;
             }
         }
+
         #dot {
             font-size: 34px;
             color: #a00;
@@ -37,8 +52,55 @@ header.mainHeader {
         }
     }
 
+    #hamburger {
+        position:fixed;
+        top:14px;
+        right:10px;
+        width: 34px; 
+        height: 30px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; 
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out; 
+        margin-right:10px;
+        @media (min-width: 768px) {
+            display:none;
+        }
+
+        .line {
+            width: 100%;
+            height: 5px;
+            background-color: rgba(255,255,255,.8);
+            transition: all 0.3s ease-in-out; 
+            border-radius: 1px;
+        }
+
+        &.open {
+            transform: rotate(180deg);
+
+            .line:nth-child(1) {
+                transform: translateY(calc(50% + 21px/2)) rotate(45deg);
+            }
+
+            .line:nth-child(2) {
+                opacity: 0;
+            }
+
+            .line:nth-child(3) {
+
+                transform: translateY(-11px) rotate(-45deg);
+            }
+        }
+    }
+
     nav {
         text-align: right;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
         a {
             text-decoration: none;
             color: #fff;

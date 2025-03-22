@@ -1,4 +1,5 @@
-import { articole, CardArticol } from "../components/postari";
+import { CardArticol } from "../components/postari";
+import { articole } from "../data/emoji";
 
 export interface IArticolProps {
   titlu: string;

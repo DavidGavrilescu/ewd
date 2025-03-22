@@ -1,60 +1,8 @@
 import React, { Fragment } from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import { animalEmojis } from '../data/emoji';
+import { useNavigate } from "react-router-dom";
+import { animalEmojis, Articol, articole } from '../data/emoji';
 
 
-interface Articol {
-    title: string;
-    summary: string;
-    poza: string | null;
-    link?: string;
-}
-
-export const articole: Articol[] = [
-    {
-        title: 'Primul articol',
-        summary: 'Prmul articol este despre ceva anume dar inca nu este clar',
-        poza: null
-    },
-    {
-        title: 'Al doilea articol',
-        summary: 'Al doilea articol este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Al treilea articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Penultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Ultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null,
-    }, {
-        title: 'Primul articol',
-        summary: 'Prmul articol este despre ceva anume dar inca nu este clar',
-        poza: null
-    },
-    {
-        title: 'Al doilea articol',
-        summary: 'Al doilea articol este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Al treilea articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Penultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
-    }, {
-        title: 'Ultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null,
-    },
-]
 export const CardArticol = ({
     title, summary, poza, link
 }: Articol) => {

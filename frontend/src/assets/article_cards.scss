@@ -1,10 +1,14 @@
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 30px;
     width: 100%;
     margin-bottom: 50px;
+    @media (max-width: 768px) {
+        box-sizing: border-box;
+        padding: 5px 10px;
+    }
 
     .card {
         width: calc((100% - 60px) / 3);
@@ -55,14 +59,16 @@
     &.simplified {
         display: flex;
         margin-top: 5px;
-
+        @media (max-width: 768px) {
+            box-sizing: border-box;
+            padding:0px;
+        }
         .card {
             width: 100% !important;
-
+            cursor:pointer;
             h4 {
                 font-size: 1.4em;
             }
-
             margin-bottom: 10px;
             padding: 0px;
         }
@@ -70,7 +76,7 @@
 
     @media (max-width: 768px) {
         .card {
-            width: calc((100% - 20px) / 2);
+            width: calc((100% - 40px) / 2);
         }
     }
 

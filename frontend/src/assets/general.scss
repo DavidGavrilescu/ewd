@@ -26,7 +26,7 @@ body {
     margin: 0 auto;
 
     &#main {
-        margin-top: 50px;
+        margin-top: 50px; // lungimea header-ului
     }
 }
 
@@ -74,29 +74,8 @@ h6 {
 
 a {
     text-decoration: none;
-    bottom: -2px;
-    transform: translateX(-100%);
-    transition: all 0.2s;
-
-    &:before {
-        content: "";
-        padding-right: 5px;
-        width: 20px;
-        height: 2px;
-        margin: 0;
-        background: none;
-        display: block;
-        position: absolute;
-        left: 1px;
-        bottom: -2px;
-        transform: translateX(-100%);
-        transition: all 0.2s;
-    }
-
-    &:hover:before {
-        transform: translateX(0);
-        background: rgb(65, 11, 201);
-    }
+    color:#7489bd;
+    padding:0px 3px;
 }
 
 .sectiune {
@@ -104,6 +83,8 @@ a {
     min-width: 100%;
     margin-bottom: 30px;
     background: rgba(68, 132, 236, 0.1);
+    padding:10px;
+    box-sizing: border-box;
 }
 
 table {
@@ -138,6 +119,11 @@ table {
     animation: moveDown .4s;
     margin-top: 70px;
     margin-bottom: 20px;
+    @media (max-width: 768px) {
+        box-sizing: border-box;
+        padding:5px 10px;
+        padding-top:20px;
+    }
 }
 
 .container {
@@ -161,6 +147,6 @@ table {
 
 table {
     @media (max-width: 768px) {
-        width: 100%; //full width table
+        width: 100%;
     }
 }
