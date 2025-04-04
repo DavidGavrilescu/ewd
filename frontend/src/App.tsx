@@ -5,6 +5,7 @@ import Articol from "./pages/Articol";
 import Galerie from "./pages/Galerie";
 import Despre from "./pages/Despre";
 import Home from "./pages/Home";
+import Chatbot from "./pages/Chatbot";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import { propsArticol } from "./data/data";
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/despre" element={<Despre />} />
           <Route path="/form" element={<Form />} />
           <Route path="/gallery" element={<Galerie />} />
+          <Route path="/chatbot" element={<Chatbot />} />
           <Route path="/articol" element={<Articol {...propsArticol} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

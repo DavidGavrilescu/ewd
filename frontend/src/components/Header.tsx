@@ -19,6 +19,7 @@ export default function Header() {
           <Link to="/despre">Despre</Link>
           <Link to="/form">Form</Link>
           <Link to="/gallery">Galerie</Link>
+          <Link to="/chatbot">Chatbot</Link>
         </nav>
         <div id="hamburger" className={openClass} onClick={openHamburgerMenu}>
           <div className="line"></div>
