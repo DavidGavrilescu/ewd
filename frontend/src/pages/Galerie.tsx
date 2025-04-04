@@ -34,7 +34,7 @@ export default function Galerie() {
 
   return (
     <div id="galerie">
-      <h1>Galerie</h1>
+      <h1 className="titlu-animat">Galeria Pisicilor</h1>
       <div className="galerie-container">
         {imagini.map((imagine, index) => (
           <div 
