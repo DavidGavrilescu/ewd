@@ -1,16 +1,30 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { animalEmojis, Articol, articole } from "../data/data";
 
-export const CardArticol = ({ title, summary, poza, link }: Articol) => {
+// importam imaginile locale
+import cat1 from "../assets/img/cat1.jpg";
+import cat2 from "../assets/img/cat2.jpg";
+import cat3 from "../assets/img/cat3.jpg";
+import cat4 from "../assets/img/cat4.jpg";
+import cat5 from "../assets/img/cat5.jpg";
+
+// array cu toate imaginile disponibile
+const catImages = [cat1, cat2, cat3, cat4, cat5];
+
+export const CardArticol = ({ title, summary, poza, link, index }: Articol & { index: number }) => {
   const navigate = useNavigate();
   const gotoArticle = () => navigate(link || "/articol");
+
+  // folosim numarul indexului pentru a selecta imaginea in ordine
+  const imageIndex = index % catImages.length;
+  const catImage = catImages[imageIndex];
 
   return (
     <div className="card" onClick={gotoArticle}>
       <img
-        src={"https://picsum.photos/400/200?" + Math.random()}
-        alt="O imagine despre care nu stim nimic"
+        src={catImage}
+        alt={`Pisica ${imageIndex + 1}`}
       />
       <h4>{title}</h4>
       <span className="emoji">
@@ -22,6 +36,7 @@ export const CardArticol = ({ title, summary, poza, link }: Articol) => {
 
 export const Postari: React.FC = () => {
   const butonRef = useRef<HTMLButtonElement>(null);
+  const [textCautare, setTextCautare] = useState("");
   
   // verifica pozitia de scroll si arata/ascunde butonul
   useEffect(() => {
@@ -56,13 +71,36 @@ export const Postari: React.FC = () => {
     });
   };
   
+  // filtram articolele in functie de textul de cautare
+  const articoleFiltrate = articole.filter(articol => 
+    textCautare === "" || 
+    articol.title.toLowerCase().includes(textCautare.toLowerCase()) ||
+    (articol.summary && articol.summary.toLowerCase().includes(textCautare.toLowerCase()))
+  );
+  
   return (
     <Fragment>
-      <h3 className="page-title">Ultimele articole</h3>
+      <div className="header-container">
+        <h3 className="page-title">Ultimele articole</h3>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Cauta articole..."
+            value={textCautare}
+            onChange={(e) => setTextCautare(e.target.value)}
+            className="search-input"
+          />
+        </div>
+      </div>
+      
       <section className="card-container">
-        {articole.map((articol, key) => (
-          <CardArticol key={key} {...articol} />
-        ))}
+        {articoleFiltrate.length > 0 ? (
+          articoleFiltrate.map((articol, key) => (
+            <CardArticol key={key} index={key} {...articol} />
+          ))
+        ) : (
+          <p className="no-results">Nu am gasit articole care sa contina "{textCautare}"</p>
+        )}
       </section>
       
       <button 
