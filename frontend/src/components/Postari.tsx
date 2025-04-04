@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { animalEmojis, Articol, articole } from "../data/data";
 
@@ -19,7 +19,43 @@ export const CardArticol = ({ title, summary, poza, link }: Articol) => {
     </div>
   );
 };
+
 export const Postari: React.FC = () => {
+  const butonRef = useRef<HTMLButtonElement>(null);
+  
+  // verifica pozitia de scroll si arata/ascunde butonul
+  useEffect(() => {
+    const verificaScroll = () => {
+      if (!butonRef.current) return;
+      
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      const bottomPosition = document.documentElement.scrollHeight - window.innerHeight - 300;
+      
+      if (scrollPosition > 300 && scrollPosition > bottomPosition) {
+        butonRef.current.classList.add('vizibil');
+      } else {
+        butonRef.current.classList.remove('vizibil');
+      }
+    };
+    
+    window.addEventListener('scroll', verificaScroll);
+    
+    // verificam starea initiala
+    verificaScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', verificaScroll);
+    };
+  }, []);
+  
+  // functie pentru a derula inapoi in sus
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   return (
     <Fragment>
       <h3 className="page-title">Ultimele articole</h3>
@@ -28,6 +64,15 @@ export const Postari: React.FC = () => {
           <CardArticol key={key} {...articol} />
         ))}
       </section>
+      
+      <button 
+        ref={butonRef}
+        className="buton-back-to-top"
+        onClick={scrollToTop}
+        aria-label="Inapoi sus"
+      >
+        ↑
+      </button>
     </Fragment>
   );
 };
