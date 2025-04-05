@@ -12,19 +12,19 @@ import cat5 from "../assets/img/cat5.jpg";
 // array cu toate imaginile disponibile
 const catImages = [cat1, cat2, cat3, cat4, cat5];
 
-export const CardArticol = ({ title, summary, poza, link, index }: Articol & { index: number }) => {
+export const CardArticol = ({ title, poza, link, index }: Articol & { index?: number }) => {
   const navigate = useNavigate();
   const gotoArticle = () => navigate(link || "/articol");
 
-  // folosim numarul indexului pentru a selecta imaginea in ordine
-  const imageIndex = index % catImages.length;
-  const catImage = catImages[imageIndex];
+  // folosim numarul indexului pentru a selecta imaginea in ordine, daca nu avem poza
+  const imageIndex = (index || 0) % catImages.length;
+  const catImage = poza ? poza : catImages[imageIndex];
 
   return (
     <div className="card" onClick={gotoArticle}>
       <img
         src={catImage}
-        alt={`Pisica ${imageIndex + 1}`}
+        alt={title}
       />
       <h4>{title}</h4>
       <span className="emoji">

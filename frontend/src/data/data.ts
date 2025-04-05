@@ -1,17 +1,17 @@
 export const animalEmojis = [
-    '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯', 
-    '🦁', '🐮', '🐷', '🐽', '🐸', '🐵', '🙈', '🙉', '🙊', '🐒', 
-    '🐔', '🐧', '🐦', '🐤', '🐣', '🐥', '🦆', '🦅', '🦉', '🦇', 
-    '🐺', '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐜', 
-    '🦟', '🦗', '🐢', '🐍', '🦎', '🦂', '🦀', '🐡', '🐠', '🐟', 
-    '🐬', '🐳', '🐋', '🦈', '🐊', '🐅', '🐆', '🦓', '🦍', '🦧', 
-    '🐘', '🦛', '🦏', '🐪', '🐫', '🦒', '🦘', '🦙', '🐃', '🐂', 
-    '🐄', '🐎', '🐖', '🐏', '🐑', '🦌', '🐐', '🐓', '🦃', '🦚', 
+    '🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼', '🐨', '🐯',
+    '🦁', '🐮', '🐷', '🐽', '🐸', '🐵', '🙈', '🙉', '🙊', '🐒',
+    '🐔', '🐧', '🐦', '🐤', '🐣', '🐥', '🦆', '🦅', '🦉', '🦇',
+    '🐺', '🐗', '🐴', '🦄', '🐝', '🐛', '🦋', '🐌', '🐞', '🐜',
+    '🦟', '🦗', '🐢', '🐍', '🦎', '🦂', '🦀', '🐡', '🐠', '🐟',
+    '🐬', '🐳', '🐋', '🦈', '🐊', '🐅', '🐆', '🦓', '🦍', '🦧',
+    '🐘', '🦛', '🦏', '🐪', '🐫', '🦒', '🦘', '🦙', '🐃', '🐂',
+    '🐄', '🐎', '🐖', '🐏', '🐑', '🦌', '🐐', '🐓', '🦃', '🦚',
     '🦜', '🦢', '🦩', '🕊', '🐇', '🐁', '🐀', '🐿', '🦔'
 ];
 
 export const propsArticol = {
-    titlu: 'Titlul postarii va aparea aici cand il vom cunoaste',
+    titlu: 'Primul Miau!',
     continut: ` <h3>Titlu Principal al Articolului</h3>
   
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -32,61 +32,79 @@ export const propsArticol = {
   
       <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.</p>
       <br>
-      <p> Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.  Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.</p>`,
-    peScurt: 'articol despre ceva...',
+      <p> Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum.  Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh.</p>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie, ligula non efficitur aliquam, nisl erat maximus eros, a convallis risus lacus eget tellus. Praesent ut interdum ante. Aenean eget magna vel libero consequat facilisis. Donec lobortis, elit ac varius hendrerit, magna mi condimentum ligula, id pulvinar lacus mauris in leo.</p>
+      <br>
+      <p>Suspendisse auctor commodo odio, a rhoncus ipsum fermentum ut. Nulla facilisi. Donec purus ante, tincidunt vel ultrices non, pellentesque et tortor. Morbi auctor, metus a dignissim consequat, sapien erat ultricies justo, in volutpat lacus dolor in leo. Proin id tellus vitae nulla placerat rhoncus. Duis sed porta lectus, ut auctor massa. Vivamus tempus ex ac nisi pretium elementum. Ut consequat neque quis urna placerat, id commodo nisl feugiat.</p>
+      <br>
+      <h3>Un Ultim Subtitlu</h3>
+      <p>Proin at finibus odio. Integer rutrum augue lectus, vel luctus arcu eleifend vel. Duis vitae orci nunc. Maecenas facilisis imperdiet aliquet. In hac habitasse platea dictumst. Aenean blandit urna nec tellus porttitor lacinia. Aenean maximus, quam eu pellentesque ultrices, nisi nisi elementum libero, at volutpat eros ante non diam. Suspendisse accumsan venenatis laoreet. Nulla in eros vitae velit dictum maximus. Mauris gravida turpis nec lectus egestas convallis. Quisque ut augue sapien. Suspendisse id magna id libero egestas pellentesque a vehicula orci.</p>`,
+    peScurt: 'Un ghid scris de pisici pentru pisici.',
     data: '13 martie 2025',
-    poza: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/1200px-Cat_August_2010-4.jpg'
-  }
+    poza: '/src/assets/img/cat1.jpg',
+    etichete: ['pisici', 'animale', 'ceva', 'altceva']
+}
 
- export interface Articol {
-      title: string;
-      summary: string;
-      poza: string | null;
-      link?: string;
-  }
+export interface Articol {
+    title: string;
+    summary: string;
+    poza: string | null;
+    link?: string;
+}
 
-  export const articole: Articol[] = [
+export const articole: Articol[] = [
     {
-        title: 'Primul articol',
-        summary: 'Prmul articol este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'MIAU: De ce avem nevoie sa dormim mult',
+        summary: 'Cum sa dormi mult si sa fii sanatos',
+        poza: '/src/assets/img/cat1.jpg',
+        link: '/articol'
     },
     {
-        title: 'Al doilea articol',
-        summary: 'Al doilea articol este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'Ghidul meow despre oameni: Cum sa-i dresezi corect',
+        summary: 'Sfaturi de la pisici pentru pisici',
+        poza: '/src/assets/img/cat2.jpg',
+        link: '/articol'
     }, {
-        title: 'Al treilea articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'PSPS PSPS: Suntem chiar atat de usor de manipulat?',
+        summary: 'O investigatie profunda despre de ce reactionam la sunete ciudate facute de oameni',
+        poza: '/src/assets/img/cat3.jpg',
+        link: '/articol'
     }, {
-        title: 'Penultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'De ce conservele scumpe sunt dreptul meu din nastere',
+        summary: 'Argumentul suprem pentru hranirea mea cu cele mai bune si mai scumpe conserve disponibile',
+        poza: '/src/assets/img/cat4.jpg',
+        link: '/articol'
     }, {
-        title: 'Ultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null,
+        title: 'Jucarii vs Cutii: De ce preferintele mele te confuzeaza',
+        summary: 'Un studiu stiintific despre motivele pentru care cutiile sunt superioare oricarei jucarii scumpe',
+        poza: '/src/assets/img/cat5.jpg',
+        link: '/articol'
     }, {
-        title: 'Primul articol',
-        summary: 'Prmul articol este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'Arta de a ignora omenirea: Un ghid practic',
+        summary: 'Tehnici avansate pentru a-ti perfectiona indiferenta atunci cand esti chemat',
+        poza: '/src/assets/img/cat1.jpg',
+        link: '/articol'
     },
     {
-        title: 'Al doilea articol',
-        summary: 'Al doilea articol este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'Mersul la veterinar: Cum sa protestezi eficient',
+        summary: 'Metode testate de a-ti exprima nemultumirea fata de acele vizite oribile la doctor',
+        poza: '/src/assets/img/cat2.jpg',
+        link: '/articol'
     }, {
-        title: 'Al treilea articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'Purr-suasiune: Cum sa obtii mai multe gustari folosind sunetele potrivite',
+        summary: 'Un ghid detaliat despre frecventa si intensitatea toarcerii pentru a obtine recompense maxime',
+        poza: '/src/assets/img/cat3.jpg',
+        link: '/articol'
     }, {
-        title: 'Penultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null
+        title: 'Teritoriul meu, regulile mele: Ghid de marcare eficienta',
+        summary: 'Tehnici pentru incepatori si avansati despre cum sa-ti afirmi dominanta asupra locuintei',
+        poza: '/src/assets/img/cat4.jpg',
+        link: '/articol'
     }, {
-        title: 'Ultimul articol',
-        summary: 'Este despre ceva anume dar inca nu este clar',
-        poza: null,
+        title: '3AM: De ce este momentul perfect pentru alergat prin casa',
+        summary: 'Explicatii detaliate despre beneficiile zumzetului nocturn si a salturilor de pe mobila',
+        poza: '/src/assets/img/cat5.jpg',
+        link: '/articol'
     },
 ]

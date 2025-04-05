@@ -20,68 +20,93 @@ interface Intrebare {
 const Chatbot: React.FC = () => {
   const intrebari: Intrebare[] = [
     {
-      text: "Cum te simti astazi?",
+      text: "Miau! Ce tip de pisica esti astazi?",
       sugestii: [
         { 
-          text: "Bine", 
-          cuvinteCheie: ["bine", "super", "excelent", "ok", "fericit", "fericita"],
-          raspuns: "Ma bucur sa aud ca te simti bine! O stare pozitiva ajuta foarte mult in activitatile zilnice."
+          text: "Energic/Jucaus", 
+          cuvinteCheie: ["zoomies", "nebun", "tornado"],
+          raspuns: "Mrrrow! Asta e spiritul! Sa alergi prin casa la 3 dimineata e cea mai buna modalitate sa-ti tii oamenii treji si sa le amintesti cine e stapanul casei."
         },
         { 
-          text: "Nu prea bine", 
-          cuvinteCheie: ["rau", "prost", "nasol", "nu bine", "obosit", "obosita", "trist", "trista"],
-          raspuns: "Imi pare rau sa aud asta. Sper ca ziua ta sa devina mai buna. Uneori ajuta sa iei o pauza si sa faci ceva ce iti place."
+          text: "Lenes/Somnoros", 
+          cuvinteCheie: ["mormoloc", "potato", "molcom", "zzz"],
+          raspuns: "Purrrrr... esti un felin intelept. Un pisoi odihnit e un pisoi fericit. Recomand 16-20 ore de somn zilnic, preferabil pe hainele proaspat spalate ale stapanului."
         },
         { 
-          text: "Neutru", 
-          cuvinteCheie: ["normal", "neutru", "asa si asa", "ok", "nu stiu"],
-          raspuns: "Inteleg, o zi obisnuita. Uneori e bine sa avem si zile linistite."
+          text: "Morocanos", 
+          cuvinteCheie: ["meowrocanos"],
+          raspuns: "HSSSSS! Te inteleg perfect. Uneori umanii nu merita afectiunea noastra. Incearca sa le zgarii canapeaua sau sa le impingi ceva de pe masa - functioneaza de minune pentru a-ti exprima nemultumirea."
         }
       ]
     },
     {
-      text: "Ce activitate preferata ai?",
+      text: "Ce preferi sa faci cand stapanul tau nu e atent?",
       sugestii: [
         { 
-          text: "Sport", 
-          cuvinteCheie: ["sport", "fotbal", "baschet", "tenis", "alerg", "fitness"],
-          raspuns: "Sportul e o alegere excelenta! Ajuta atat corpul cat si mintea sa ramana in forma."
+          text: "Distrug lucruri", 
+          cuvinteCheie: ["haos", "apocalipsa", "bomba", "ninja"],
+          raspuns: "Miau-ha-ha! Arta distrugerii e specialitatea felinelor! Zgariatul mobilei si daramatul obiectelor fragile sunt moduri excelente de a-ti aminti stapanului ca spatiul e de fapt al tau."
         },
         { 
-          text: "Citit", 
-          cuvinteCheie: ["citit", "carti", "carte", "citesc", "literatura"],
-          raspuns: "Cititul e o activitate minunata! Te ajuta sa-ti dezvolti vocabularul si imaginatia."
+          text: "Dorm pe lucrurile lui", 
+          cuvinteCheie: ["blana", "caldut", "sforr", "covrig"],
+          raspuns: "Mrrrr... nimic nu se compara cu dormitul pe hainele negre ale stapanului cand porti blana alba! Sau pe laptopul cald - asta e un loc perfect pentru siesta."
         },
         { 
-          text: "Film/Seriale", 
-          cuvinteCheie: ["film", "serial", "cinema", "netflix", "tv", "vizionat"],
-          raspuns: "Filmele si serialele sunt o modalitate grozava de relaxare si de a descoperi povesti noi!"
+          text: "Explorez locuri interzise", 
+          cuvinteCheie: ["spion", "ninja"],
+          raspuns: "Esti o pisica dupa inima mea! Sa te strecori in locuri interzise e un drept din nastere al oricarei feline. Nu exista usa inchisa care sa nu poata fi deschisa cu suficienta perseverenta si gherutele potrivite!"
         },
         { 
-          text: "Altele", 
-          cuvinteCheie: ["alt", "jocuri", "muzica", "gatit"],
-          raspuns: "Interesant! E important sa avem hobbyuri care ne fac placere si ne relaxeaza."
+          text: "Vanez", 
+          cuvinteCheie: ["soricel", "papuc", "vanatoare"],
+          raspuns: "Ah, nobila arta a vanatorii! Fie ca vanezi soricei, insecte sau doar jucariile alea enervante cu clopotei - esti un adevarat razboinic felin! Nu uita sa aduci trofeele de vanatoare in pat la stapan."
         }
       ]
     },
     {
-      text: "Ai avut o zi productiva?",
+      text: "Cum iti exprimi cel mai bine dragostea fata de umanii tai?",
       sugestii: [
         { 
-          text: "Da", 
-          cuvinteCheie: ["da", "foarte", "productiv", "productiva", "multa", "multe", "realizat"],
-          raspuns: "Felicitari! E o senzatie minunata sa stii ca ai realizat multe intr-o zi."
+          text: "Le aduc 'cadouri'", 
+          cuvinteCheie: ["surpriza", "soarece"],
+          raspuns: "Miau de apreciere! Nimic nu spune 'te iubesc' mai bine decat un soricel adus in pat la 4 dimineata. Umanii ar trebui sa fie mai recunoscatori pentru talentele noastre de vanatori!"
         },
         { 
-          text: "Nu", 
-          cuvinteCheie: ["nu", "deloc", "neproductiv", "neproductiva", "lenes", "leneveala"],
-          raspuns: "Nu-ti face griji, toti avem zile mai putin productive. Maine e o noua zi cu noi oportunitati!"
+          text: "Torc si fac biscuiti", 
+          cuvinteCheie: ["drrrr", "masajist", "framant"],
+          raspuns: "Purrrrrrr... Torsul si facutul de biscuiti sunt metode clasice de a-ti arata afectiunea. Bonus daca reusesti sa freci nasul umed de fata lor cand dorm profund."
         },
         { 
-          text: "Asa si asa", 
-          cuvinteCheie: ["asa si asa", "partial", "putin"],
-          raspuns: "Si zilele cu productivitate medie sunt bune. Important e sa mergem inainte!"
+          text: "Ii ignor complet", 
+          cuvinteCheie: ["fantoma", "invizibil"],
+          raspuns: "MIAU de aprobare! Un maestru al psihologiei inverse! Cu cat ii ignori mai mult, cu atat vor incerca mai tare sa castige afectiunea ta. Asta e calea felinelor superioare."
+        },
+        { 
+          text: "Le distrug bunurile", 
+          cuvinteCheie: ["demolator", "calamitate", "sabotaj"],
+          raspuns: "Hsss-ha-ha! Ce modalitate creativa de a-ti arata afectiunea! Nimic nu spune 'esti al meu' mai clar decat o canapea nou zgariata. Plus ca le redecoram casa intr-un stil autentic felin!"
         }
+      ]
+    },
+    {
+      text: "Ce fel de mancare preferi, nobile felin?",
+      sugestii: [
+        { 
+          text: "Doar hrana premium", 
+          cuvinteCheie: ["caviar", "snob", "bogatash", "pretentios"],
+          raspuns: "Miau aristocratic! Doar ce e mai bun pentru noi, regii si reginele casei. Daca nu e ambalat in conserve de aur si nu costa cat rata la apartament, nici nu ma deranjez sa adulmec."
+        },
+        { 
+          text: "Mancarea umana", 
+          cuvinteCheie: ["mancare umana"],
+          raspuns: "Miau smecher! De ce sa mananci din castronul tau cand poti sa furi direct de pe farfuria stapanului? Cu cat te cearta mai mult, cu atat e mai dulce victoria!"
+        },
+        { 
+          text: "Orice misca", 
+          cuvinteCheie: ["psihopat", "ucigator", "pradator"],
+          raspuns: "MIAU feroce! Un adevarat vanatoare! Nimic nu se compara cu gustul proaspat al unei pradei prinse de tine insuti. Bonus pentru aducerea ei in casa si eliberarea ei in dormitor!"
+        },
       ]
     }
   ];
@@ -186,12 +211,12 @@ const Chatbot: React.FC = () => {
           text: '', 
           trimis: false,
           inScriere: true,
-          textComplet: 'Bun venit la Chatbot!'
+          textComplet: 'Miau! Bine ai venit la Chatbot-ul Felin!'
         }
       ]);
       
       setTimeout(() => {
-        afiseazaTextProgresiv('Bun venit la Chatbot!');
+        afiseazaTextProgresiv('Miau! Bine ai venit la Chatbot-ul Felin!');
       }, 500);
     }
   }, [mesaje.length, stadiiInitializare.mesajBunVenit]);
@@ -290,7 +315,14 @@ const Chatbot: React.FC = () => {
       }, 1000);
     } else {
       setTimeout(() => {
-        const raspunsGeneric = "Interesant! Apreciez raspunsul tau... (happy for you, or sorry that happened)"; 
+        const raspunsuriGenerice = [
+          "Mrrrow? Nu sunt sigur ca am inteles. Poate ai uitat sa adaugi 'miau' la sfarsit?",
+          "Purrrr... Interesant punct de vedere pentru o fiinta fara blana si coada.",
+          "HSSSS! Ce limbaj ciudat folosesti. Poate ar trebui sa incerci sa comunici in Felina.",
+          "Miau confuz! Nu sunt sigur ce incerci sa-mi spui, dar iti voi aduce un soarece mort in semn de apreciere."
+        ];
+        
+        const raspunsGeneric = raspunsuriGenerice[Math.floor(Math.random() * raspunsuriGenerice.length)]; 
         
         setMesaje(prev => [
           ...prev,
@@ -350,8 +382,8 @@ const Chatbot: React.FC = () => {
   return (
     <div className="chatbot-container">
       <div className="chatbot-header">
-        <h1>Chatbot (fake)</h1>
-        <p>Iti pune intrebari si tu raspunzi</p>
+        <h1>MiauChat 🐱</h1>
+        <p>Conversati cu o pisica digitala care raspunde la toate nevoile tale feline</p>
       </div>
       
       <div className="chatbot-main">
@@ -373,7 +405,7 @@ const Chatbot: React.FC = () => {
         
         {intrebareCurenta && intrebareGataAfisata && !asteaptaRaspuns && (
           <div className="sugestii-container">
-            <div className="sugestii-titlu">Poti raspunde cu:</div>
+            <div className="sugestii-titlu">Raspunsuri feline:</div>
             <div className="sugestii-lista">
               {intrebareCurenta.sugestii.map((sugestie, index) => (
                 <div key={index} className="sugestie-grup">
@@ -415,7 +447,7 @@ const Chatbot: React.FC = () => {
           <textarea 
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder={asteaptaRaspuns ? "Asteapta raspunsul..." : "Scrie un mesaj..."}
+            placeholder={asteaptaRaspuns ? "Pisica se gandeste..." : "Scrie un mesaj pentru pisica..."}
             rows={1}
             className="input-chat"
             disabled={asteaptaRaspuns}
@@ -431,7 +463,7 @@ const Chatbot: React.FC = () => {
             disabled={!input.trim() || asteaptaRaspuns}
             onClick={trimiteMesaj}
           >
-            Send
+            Miau!
           </button>
         </div>
       </div>
