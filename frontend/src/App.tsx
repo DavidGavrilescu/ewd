@@ -12,7 +12,7 @@ import { propsArticol } from "./data/data";
 import { Fragment } from "react/jsx-runtime";
 
 function NotFound() {
-  return <h1>404 - Pagina nu există</h1>;
+  return <h1>404 - Pagina nu exista</h1>;
 }
 
 export default function App() {
