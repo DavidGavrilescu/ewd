@@ -1,31 +1,26 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { animalEmojis, Articol, articole } from "../data/data";
+import { animalEmojis, IArticol } from "../data/data";
 
-// importam imaginile locale
-import cat1 from "../assets/img/cat1.jpg";
-import cat2 from "../assets/img/cat2.jpg";
-import cat3 from "../assets/img/cat3.jpg";
-import cat4 from "../assets/img/cat4.jpg";
-import cat5 from "../assets/img/cat5.jpg";
+export interface TypePostareBackend {
+  id: number;
+  titlu: string;
+  descriere: string;
+  etichete: string;
+  continut_html: string;
+  data_creare: string;
+  poza: string | null;
+}
 
-// array cu toate imaginile disponibile
-const catImages = [cat1, cat2, cat3, cat4, cat5];
+export const BackendBaseURL = "http://127.0.0.1:8000/";
 
-export const CardArticol = ({ title, poza, link, index }: Articol & { index?: number }) => {
+export const CardArticol = ({ title, poza, link }: IArticol) => {
   const navigate = useNavigate();
-  const gotoArticle = () => navigate(link || "/articol");
-
-  // folosim numarul indexului pentru a selecta imaginea in ordine, daca nu avem poza
-  const imageIndex = (index || 0) % catImages.length;
-  const catImage = poza ? poza : catImages[imageIndex];
+  const gotoArticle = () => navigate(link);
 
   return (
     <div className="card" onClick={gotoArticle}>
-      <img
-        src={catImage}
-        alt={title}
-      />
+      {poza && <img src={poza} alt={title} />}
       <h4>{title}</h4>
       <span className="emoji">
         {animalEmojis[Math.floor(Math.random() * animalEmojis.length)]}
@@ -37,47 +32,70 @@ export const CardArticol = ({ title, poza, link, index }: Articol & { index?: nu
 export const Postari: React.FC = () => {
   const butonRef = useRef<HTMLButtonElement>(null);
   const [textCautare, setTextCautare] = useState("");
-  
+  const [postari, setPostari] = useState<IArticol[]>([]);
+
+  useEffect(() => {
+    fetch(`${BackendBaseURL}api/postari-blog/`)
+      .then((response) => response.json())
+      .then((data: TypePostareBackend[]) =>
+        setPostari(
+          data
+            .map((postare) => ({
+              title: postare.titlu,
+              poza: `${BackendBaseURL}/media/${postare.poza}`,
+              link: `/articol/${postare.id}`,
+              continut: postare.continut_html,
+              data: postare.data_creare,
+              etichete: postare.etichete.split(","),
+              summary: postare.descriere,
+            }))
+            .slice(0, 10) // primele 10 articole
+        )
+      );
+  }, []);
+
   // verifica pozitia de scroll si arata/ascunde butonul
   useEffect(() => {
     const verificaScroll = () => {
       if (!butonRef.current) return;
-      
-      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
-      const bottomPosition = document.documentElement.scrollHeight - window.innerHeight - 300;
-      
+
+      const scrollPosition =
+        window.scrollY || document.documentElement.scrollTop;
+      const bottomPosition =
+        document.documentElement.scrollHeight - window.innerHeight - 300;
+
       if (scrollPosition > 300 && scrollPosition > bottomPosition) {
-        butonRef.current.classList.add('vizibil');
+        butonRef.current.classList.add("vizibil");
       } else {
-        butonRef.current.classList.remove('vizibil');
+        butonRef.current.classList.remove("vizibil");
       }
     };
-    
-    window.addEventListener('scroll', verificaScroll);
-    
-    // verificam starea initiala
+
+    window.addEventListener("scroll", verificaScroll);
+
     verificaScroll();
-    
+
     return () => {
-      window.removeEventListener('scroll', verificaScroll);
+      window.removeEventListener("scroll", verificaScroll);
     };
   }, []);
-  
-  // functie pentru a derula inapoi in sus
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
-  
+
   // filtram articolele in functie de textul de cautare
-  const articoleFiltrate = articole.filter(articol => 
-    textCautare === "" || 
-    articol.title.toLowerCase().includes(textCautare.toLowerCase()) ||
-    (articol.summary && articol.summary.toLowerCase().includes(textCautare.toLowerCase()))
+  const articoleFiltrate = postari.filter(
+    (articol) =>
+      textCautare === "" ||
+      articol.title.toLowerCase().includes(textCautare.toLowerCase()) ||
+      (articol.summary &&
+        articol.summary.toLowerCase().includes(textCautare.toLowerCase()))
   );
-  
+
   return (
     <Fragment>
       <div className="header-container">
@@ -92,18 +110,20 @@ export const Postari: React.FC = () => {
           />
         </div>
       </div>
-      
+
       <section className="card-container">
         {articoleFiltrate.length > 0 ? (
           articoleFiltrate.map((articol, key) => (
-            <CardArticol key={key} index={key} {...articol} />
+            <CardArticol key={key} {...articol} />
           ))
         ) : (
-          <p className="no-results">Nu am gasit articole care sa contina "{textCautare}"</p>
+          <p className="no-results">
+            Nu am gasit articole care sa contina "{textCautare}"
+          </p>
         )}
       </section>
-      
-      <button 
+
+      <button
         ref={butonRef}
         className="buton-back-to-top"
         onClick={scrollToTop}

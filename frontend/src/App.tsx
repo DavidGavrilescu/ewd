@@ -26,7 +26,7 @@ export default function App() {
           <Route path="/form" element={<Form />} />
           <Route path="/gallery" element={<Galerie />} />
           <Route path="/chatbot" element={<Chatbot />} />
-          <Route path="/articol" element={<Articol {...propsArticol} />} />
+          <Route path="/articol/:id" element={<Articol />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>

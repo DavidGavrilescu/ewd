@@ -1,19 +1,26 @@
 import { useState, useEffect } from "react";
-import '../assets/scss/Galerie.scss';
+import "../assets/scss/Galerie.scss";
+import { BackendBaseURL } from "../components/Postari";
 
+interface IElementGalerie {
+  poza: string;
+  id: number;
+  descriere: string;
+}
 export default function Galerie() {
   // array cu imaginile din galerie
-  const imagini = [
-    "/src/assets/img/cat1.jpg",
-    "/src/assets/img/cat2.jpg",
-    "/src/assets/img/cat3.jpg",
-    "/src/assets/img/cat4.jpg",
-    "/src/assets/img/cat5.jpg",
-  ];
-  
+  const [imagini, setImagini] = useState<IElementGalerie[]>([]);
+
+  // fetch poze http://127.0.0.1:8000/api/elemente-galerie/
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/elemente-galerie/")
+      .then((response) => response.json())
+      .then((elemente: IElementGalerie[]) => setImagini(elemente));
+  }, []);
+
   // state pentru a tine evidenta imaginii active
   const [indexActiv, setIndexActiv] = useState(0);
-  
+
   // functie pentru a schimba imaginea activa
   const schimbaImagine = (index: number) => {
     setIndexActiv(index);
@@ -22,13 +29,13 @@ export default function Galerie() {
   const imagineaUrmatoare = () => {
     setIndexActiv((prevIndex) => (prevIndex + 1) % imagini.length);
   };
-  
+
   // schimba automat imaginea la fiecare 4 secunde
   useEffect(() => {
     const interval = setInterval(() => {
       setIndexActiv((prevIndex) => (prevIndex + 1) % imagini.length);
     }, 4000);
-    
+
     return () => clearInterval(interval);
   }, [imagini.length]);
 
@@ -36,13 +43,13 @@ export default function Galerie() {
     <div id="galerie">
       <h1 className="titlu-animat">Galeria Pisicilor</h1>
       <div className="galerie-container">
-        {imagini.map((imagine, index) => (
-          <div 
-            key={index} 
-            className={`imagine-card ${index === indexActiv ? 'activ' : ''}`}
+        {imagini.map(({ poza: imagine, descriere }, index) => (
+          <div
+            key={index}
+            className={`imagine-card ${index === indexActiv ? "activ" : ""}`}
             onClick={() => imagineaUrmatoare()}
           >
-            <img src={imagine} alt={`Imagine ${index + 1}`} />
+            <img src={`${BackendBaseURL}media/${imagine}`} alt={descriere} />
           </div>
         ))}
       </div>
@@ -50,7 +57,7 @@ export default function Galerie() {
         {imagini.map((_, index) => (
           <button
             key={index}
-            className={index === indexActiv ? 'activ' : ''}
+            className={index === indexActiv ? "activ" : ""}
             onClick={() => schimbaImagine(index)}
           />
         ))}
