@@ -4,7 +4,7 @@ import {
   CardArticol,
   TypePostareBackend,
 } from "../components/Postari";
-import { articole, IPostare } from "../data/data";
+import { IPostare } from "../data/data";
 import { useEffect, useState } from "react";
 
 export default function Articol() {
@@ -16,6 +16,8 @@ export default function Articol() {
   const [articoleRecente, setArticoleRecente] = useState<IPostare[]>([]);
 
   useEffect(() => {
+    document.title = "Incarcare articol...";
+
     fetch(urlArticol)
       .then((response) => response.json())
       .then((postare: TypePostareBackend) =>
@@ -46,10 +48,19 @@ export default function Articol() {
           }))
         );
       });
-  }, []);
+  }, [id, urlArticol, urlArticoleRecente]);
 
   const articolObj = articol && articol.length > 0 ? articol[0] : null;
   const { poza, titlu, peScurt, data, etichete, continut } = articolObj || {};
+
+  useEffect(() => {
+    if (titlu) {
+      document.title = titlu;
+    }
+    return () => {
+      document.title = "Articol blog";
+    };
+  }, [titlu]);
 
   return (
     <div id="articol">

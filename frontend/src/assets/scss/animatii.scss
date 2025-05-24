@@ -12,20 +12,6 @@
     }
 }
 
-@keyframes moveAnimation {
-    0% {
-        transform: translateX(-100000px);
-    }
-
-    50% {
-        transform: translateX(100px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
 @keyframes moveDown {
     0% {
         transform: translateY(100px);

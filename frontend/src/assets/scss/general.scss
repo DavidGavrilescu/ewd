@@ -26,7 +26,23 @@ body {
     margin: 0 auto;
 
     &#main {
-        margin-top: 50px; // lungimea header-ului
+        margin-top: 50px; // inaltimea header-ului
+    }
+    @media (max-width: 1200px) {
+        max-width: 960px;
+    }
+
+    @media (max-width: 992px) {
+        max-width: 720px;
+        padding: 0px;
+    }
+
+    @media (max-width: 768px) {
+        max-width: 540px;
+    }
+
+    @media (max-width: 576px) {
+        max-width: 100%;
     }
 }
 
@@ -42,7 +58,6 @@ h4,
 h5,
 h6,
 p {
-    @extend .padding-margin;
     margin: 0;
     padding: 0;
     padding-bottom: 5px;
@@ -130,25 +145,6 @@ table {
         box-sizing: border-box;
         padding:5px 10px;
         padding-top:20px;
-    }
-}
-
-.container {
-    @media (max-width: 1200px) {
-        max-width: 960px;
-    }
-
-    @media (max-width: 992px) {
-        max-width: 720px;
-        padding: 0px;
-    }
-
-    @media (max-width: 768px) {
-        max-width: 540px;
-    }
-
-    @media (max-width: 576px) {
-        max-width: 100%;
     }
 }
 

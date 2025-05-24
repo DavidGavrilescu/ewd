@@ -18,6 +18,30 @@ header.mainHeader {
             display: block;
             width: 100%;
             text-align: left;
+            animation: fadeInMenu 0.15s ease-in-out forwards;
+            a {
+                animation: fadeInLink 0.1s ease-in-out forwards;
+                opacity: 0;
+                @for $i from 1 through 5 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: #{$i * 0.025}s;
+                    }
+                }
+            }
+        }
+        &:not(.open) {
+            &[data-was-open="true"] {
+                animation: fadeOutMenu 0.15s ease-in-out forwards;
+                animation-delay: 0.1s;
+                a {
+                    animation: fadeOutLink 0.05s ease-in-out forwards !important;
+                    @for $i from 1 through 5 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: #{(5 - $i) * 0.015}s;
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -62,9 +86,9 @@ header.mainHeader {
         height: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         cursor: pointer;
-        transition: transform 0.1s;
+        transition: transform 0.05s ease-in-out;
         margin-right: 10px;
 
         @media (min-width: 768px) {
@@ -73,25 +97,25 @@ header.mainHeader {
 
         .line {
             width: 100%;
-            height: 5px;
+            height: 4px;
             background-color: rgba(255, 255, 255, .8);
-            transition: all 0.1s;
-            border-radius: 1px;
+            transition: all 0.05s ease-in-out;
+            border-radius: 2px;
+            transform-origin: center;
         }
 
         &.open {
-            transform: rotate(180deg);
-
             .line:nth-child(1) {
-                transform: translateY(calc(50% + 21px/2)) rotate(45deg);
+                transform: translateY(13px) rotate(45deg);
             }
 
             .line:nth-child(2) {
                 opacity: 0;
+                transform: translateX(-100%);
             }
 
             .line:nth-child(3) {
-                transform: translateY(-11px) rotate(-45deg);
+                transform: translateY(-8px) rotate(-45deg);
             }
         }
     }
@@ -101,6 +125,63 @@ header.mainHeader {
 
         @media (max-width: 768px) {
             display: none;
+            &.open {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 42px;
+                left: 0;
+                width: 100%;
+                background: rgba(29, 34, 46, .9);
+                padding: 20px 0;
+                a {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin: 10px 0;
+                    padding: 10px 0;
+                    font-size: 1.5em;
+                    opacity: 0;
+                    animation: fadeInLinkMobile 0.1s ease-in-out forwards;
+                    @for $i from 1 through 5 {
+                        &:nth-child(#{$i}) {
+                            animation-delay: #{$i * 0.025}s;
+                        }
+                    }
+                    &:hover {
+                        background: rgba(68, 132, 236, 0.2);
+                    }
+                }
+            }
+            &:not(.open) {
+                &[data-was-open="true"] {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: absolute;
+                    top: 42px;
+                    left: 0;
+                    width: 100%;
+                    background: rgba(29, 34, 46, 0.95);
+                    padding: 20px 0;
+                    a {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        margin: 10px 0;
+                        padding: 10px 0;
+                        font-size: 1.5em;
+
+                        animation: fadeOutLinkMobile 0.05s ease-in-out forwards !important;
+                        @for $i from 1 through 5 {
+                            &:nth-child(#{$i}) {
+                                animation-delay: #{(5 - $i) * 0.015}s;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         a {
@@ -112,7 +193,7 @@ header.mainHeader {
             font-weight: bold;
             margin-left: 30px;
             padding: 3px;
-            transition: opacity 0.2s;
+            transition: opacity 0.1s;
             font-size: 1.3em;
 
             &:hover {
@@ -121,24 +202,9 @@ header.mainHeader {
         }
     }
 
-
     @media (max-width: 768px) {
-        flex-direction: column;
-        align-items: center;
-
         #logo {
-            margin-bottom: 15px;
-        }
-
-        nav {
-            width: 100%;
-            text-align: center;
-
-            a {
-                margin-left: 10px;
-                margin-right: 10px;
-                display: inline-block;
-            }
+            margin-bottom: 0px;
         }
     }
 
@@ -147,4 +213,34 @@ header.mainHeader {
             font-size: 1em;
         }
     }
+}
+
+@keyframes fadeInMenu {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutMenu {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); pointer-events: none; }
+}
+
+@keyframes fadeInLink {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeOutLink {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-10px); }
+}
+
+@keyframes fadeInLinkMobile {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutLinkMobile {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(10px); }
 }

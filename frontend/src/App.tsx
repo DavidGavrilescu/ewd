@@ -8,8 +8,8 @@ import Home from "./pages/Home";
 import Chatbot from "./pages/Chatbot";
 import Header from "./components/Header";
 import Container from "./components/Container";
-import { propsArticol } from "./data/data";
 import { Fragment } from "react/jsx-runtime";
+import SeteazaTitluPagina from "./components/SeteazaTitluPagina";
 
 function NotFound() {
   return <h1>404 - Pagina nu exista</h1>;
@@ -18,6 +18,7 @@ function NotFound() {
 export default function App() {
   return (
     <Fragment>
+      <SeteazaTitluPagina />
       <Header />
       <Container id="main">
         <Routes>
