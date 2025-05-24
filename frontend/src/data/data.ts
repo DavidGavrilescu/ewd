@@ -117,7 +117,7 @@ export const propsArticol = {
       </p>
        <br>
   
-      <h3>Încă un Subtitlu</h3>
+      <h3>Inca un Subtitlu</h3>
   
       <p>Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor.</p>
       <br>

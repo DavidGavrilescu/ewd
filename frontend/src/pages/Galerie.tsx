@@ -11,17 +11,17 @@ export default function Galerie() {
   // array cu imaginile din galerie
   const [imagini, setImagini] = useState<IElementGalerie[]>([]);
 
-  // fetch poze http://127.0.0.1:8000/api/elemente-galerie/
+  // preia pozele de la adresa specificata
   useEffect(() => {
     fetch("http://127.0.0.1:8000/api/elemente-galerie/")
       .then((response) => response.json())
       .then((elemente: IElementGalerie[]) => setImagini(elemente));
   }, []);
 
-  // state pentru a tine evidenta imaginii active
+  // stare pentru a tine evidenta imaginii active
   const [indexActiv, setIndexActiv] = useState(0);
 
-  // functie pentru a schimba imaginea activa
+  // functie pentru schimbarea imaginii active
   const schimbaImagine = (index: number) => {
     setIndexActiv(index);
   };

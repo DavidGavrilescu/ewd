@@ -5,7 +5,7 @@ import App from './App.tsx'
 import "./assets/scss/styles.scss";
 import { useEffect } from 'react';
 
-// componenta care va reseta scroll-ul la navigare
+// componenta pentru resetarea scroll-ului la navigare
 function ScrollToTop() {
   const { pathname } = useLocation();
   

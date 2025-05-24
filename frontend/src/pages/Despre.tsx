@@ -1,4 +1,4 @@
-// import imagini locale
+// importuri imagini locale
 import cat1 from "../assets/img/cat1.jpg";
 import cat2 from "../assets/img/cat2.jpg";
 import cat3 from "../assets/img/cat3.jpg";

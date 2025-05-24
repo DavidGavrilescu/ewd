@@ -54,7 +54,7 @@ export const Postari: React.FC = () => {
       );
   }, []);
 
-  // verifica pozitia de scroll si arata/ascunde butonul
+  // verifica pozitia de scroll si gestioneaza vizibilitatea butonului
   useEffect(() => {
     const verificaScroll = () => {
       if (!butonRef.current) return;
@@ -87,7 +87,7 @@ export const Postari: React.FC = () => {
     });
   };
 
-  // filtram articolele in functie de textul de cautare
+  // filtreaza articolele pe baza textului de cautare
   const articoleFiltrate = postari.filter(
     (articol) =>
       textCautare === "" ||
