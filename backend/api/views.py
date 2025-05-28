@@ -1,7 +1,7 @@
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed, HttpResponse
-from .models import PostareBlog, MesajContact, ElementGalerie, IntrebareBot, Despre
+from .models import PostareBlog, MesajContact, ElementGalerie, IntrebareBot, Despre, Review
 
 @csrf_exempt
 def lista_postari_blog(request):
@@ -145,3 +145,88 @@ def detaliu_postare_blog(request, id):
             return JsonResponse({'eroare': 'Postare inexistenta'}, status=404)
 
     return HttpResponseNotAllowed(['GET'])
+
+@csrf_exempt
+def lista_review_uri(request):
+    if request.method == 'GET':
+        reviews = Review.objects.all().values('id', 'nume', 'rating', 'comentariu', 'data_creare', 'session_id')
+        return JsonResponse(list(reviews), safe=False)
+    elif request.method == 'POST':
+        try:
+            date = json.loads(request.body)
+            review = Review.objects.create(
+                nume=date['nume'],
+                rating=date['rating'],
+                comentariu=date['comentariu'],
+                session_id=date['session_id']
+            )
+            return JsonResponse({
+                'id': review.id,
+                'nume': review.nume,
+                'rating': review.rating,
+                'comentariu': review.comentariu,
+                'data_creare': review.data_creare,
+                'session_id': review.session_id
+            }, status=201)
+        except (KeyError, json.JSONDecodeError):
+            return HttpResponseBadRequest("Date invalide.")
+    return HttpResponseNotAllowed(['GET', 'POST'])
+
+@csrf_exempt
+def detaliu_review(request, id):
+    if request.method == 'GET':
+        try:
+            review = Review.objects.get(pk=id)
+            return JsonResponse({
+                'id': review.id,
+                'nume': review.nume,
+                'rating': review.rating,
+                'comentariu': review.comentariu,
+                'data_creare': review.data_creare,
+                'session_id': review.session_id
+            })
+        except Review.DoesNotExist:
+            return JsonResponse({'eroare': 'Review inexistent'}, status=404)
+    elif request.method == 'PUT':
+        try:
+            review = Review.objects.get(pk=id)
+            date = json.loads(request.body)
+            
+            # verifica daca session_id se potriveste
+            if review.session_id != date.get('session_id'):
+                return JsonResponse({'eroare': 'Nu aveti permisiunea sa editati acest review'}, status=403)
+            
+            review.nume = date.get('nume', review.nume)
+            review.rating = date.get('rating', review.rating)
+            review.comentariu = date.get('comentariu', review.comentariu)
+            review.save()
+            
+            return JsonResponse({
+                'id': review.id,
+                'nume': review.nume,
+                'rating': review.rating,
+                'comentariu': review.comentariu,
+                'data_creare': review.data_creare,
+                'session_id': review.session_id
+            })
+        except Review.DoesNotExist:
+            return JsonResponse({'eroare': 'Review inexistent'}, status=404)
+        except (KeyError, json.JSONDecodeError):
+            return HttpResponseBadRequest("Date invalide.")
+    elif request.method == 'DELETE':
+        try:
+            review = Review.objects.get(pk=id)
+            date = json.loads(request.body)
+            
+            # verifica daca session_id se potriveste
+            if review.session_id != date.get('session_id'):
+                return JsonResponse({'eroare': 'Nu aveti permisiunea sa stergeti acest review'}, status=403)
+            
+            review.delete()
+            return JsonResponse({'mesaj': 'Review sters cu succes'})
+        except Review.DoesNotExist:
+            return JsonResponse({'eroare': 'Review inexistent'}, status=404)
+        except (KeyError, json.JSONDecodeError):
+            return HttpResponseBadRequest("Date invalide.")
+    
+    return HttpResponseNotAllowed(['GET', 'PUT', 'DELETE'])

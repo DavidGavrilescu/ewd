@@ -42,3 +42,16 @@ class Despre(models.Model):
 
     def __str__(self):
         return self.titlu
+
+class Review(models.Model):
+    nume = models.CharField(max_length=100)
+    rating = models.PositiveIntegerField(choices=[(i, i) for i in range(1, 6)])  # 1-5 stars
+    comentariu = models.TextField()
+    data_creare = models.DateTimeField(auto_now_add=True)
+    session_id = models.CharField(max_length=255)  # pentru identificarea user-ului
+
+    def __str__(self):
+        return f"{self.nume} - {self.rating} stars"
+
+    class Meta:
+        ordering = ['-data_creare']

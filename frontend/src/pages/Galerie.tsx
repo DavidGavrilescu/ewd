@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "../assets/scss/Galerie.scss";
+import "../assets/scss/galerie.scss";
 import { BackendBaseURL } from "../components/Postari";
 
 interface IElementGalerie {
@@ -55,11 +55,7 @@ export default function Galerie() {
       </div>
       <div className="butoane-slider">
         {imagini.map((_, index) => (
-          <button
-            key={index}
-            className={index === indexActiv ? "activ" : ""}
-            onClick={() => schimbaImagine(index)}
-          />
+          <button key={index} className={index === indexActiv ? "activ" : ""} onClick={() => schimbaImagine(index)} />
         ))}
       </div>
     </div>
