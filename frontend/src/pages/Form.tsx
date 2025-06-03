@@ -128,9 +128,9 @@ export default function Form() {
       <div className="formular-container">
         <div className="formular-text">
           <p>
-            Salut, om! Ai ceva de spus pisicilor din echipa noastra? Poate vrei sa ne plangesti ca nu-ti raspundem la
-            mesaje sau ca ignoram jucariile scumpe pe care ni le cumperi? Sau poate vrei sa ne feliciti pentru ca am
-            spart iar ceva prin casa?
+            Salut! Ai ceva de spus pisicilor din echipa noastra? Poate vrei sa ne plangesti ca nu-ti raspundem la mesaje
+            sau ca ignoram jucariile scumpe pe care ni le cumperi? Sau poate vrei sa ne feliciti pentru ca am spart iar
+            ceva prin casa?
           </p>
           <p>
             Completeaza formularul de mai jos si poate, daca suntem in dispozitie buna si nu dormim, o sa-ti raspundem.
@@ -227,7 +227,7 @@ export default function Form() {
                       checked={formData.pisici === "4+"}
                       onChange={handleRadioChange}
                     />
-                    <span>4+ (casa mea e un regat felin)</span>
+                    <span>4+ (casa mea e un regat pisicesc)</span>
                   </label>
                 </div>
               </div>

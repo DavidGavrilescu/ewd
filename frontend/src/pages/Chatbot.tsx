@@ -38,7 +38,7 @@ const Chatbot: React.FC = () => {
           text: "Morocanos",
           cuvinteCheie: ["meowrocanos"],
           raspuns:
-            "Hsss! Te inteleg. Uneori oamenii nu merita atentia noastra. Incearca sa le zgarii putin canapeaua - e o modalitate clasica de comunicare felina.",
+            "Hsss! Te inteleg. Uneori oamenii nu merita atentia noastra. Incearca sa le zgarii putin canapeaua - e o modalitate clasica de comunicare pisiceasca.",
         },
       ],
     },
@@ -49,7 +49,7 @@ const Chatbot: React.FC = () => {
           text: "Distrug lucruri",
           cuvinteCheie: ["haos", "distrug", "bomba", "ninja"],
           raspuns:
-            "Miau! Zgariatul mobilei e o arta antica felina. E o modalitate naturala de a-ti marca teritoriul si de a-ti ascu ghearele.",
+            "Miau! Zgariatul mobilei e o arta antica a pisicilor. E o modalitate naturala de a-ti marca teritoriul si de a-ti ascu ghearele.",
         },
         {
           text: "Dorm pe lucrurile lui",
@@ -212,12 +212,12 @@ const Chatbot: React.FC = () => {
           text: "",
           trimis: false,
           inScriere: true,
-          textComplet: "Miau! Salut, om! Sunt MiauBot-ul tau digital.",
+          textComplet: "Miau! Salut! Sunt MiauBot-ul tau digital.",
         },
       ]);
 
       setTimeout(() => {
-        afiseazaTextProgresiv("Miau! Salut, om! Sunt MiauBot-ul tau digital.");
+        afiseazaTextProgresiv("Miau! Salut! Sunt MiauBot-ul tau digital.");
       }, 500);
     }
   }, [mesaje.length, stadiiInitializare.mesajBunVenit]);
@@ -396,7 +396,7 @@ const Chatbot: React.FC = () => {
 
         {intrebareCurenta && intrebareGataAfisata && !asteaptaRaspuns && (
           <div className="sugestii-container">
-            <div className="sugestii-titlu">Raspunsuri feline:</div>
+            <div className="sugestii-titlu">Raspunsuri pisicesti:</div>
             <div className="sugestii-lista">
               {intrebareCurenta.sugestii.map((sugestie, index) => (
                 <div key={index} className="sugestie-grup">

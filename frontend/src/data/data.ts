@@ -96,7 +96,7 @@ export interface IPostare {
   continut: string;
   peScurt: string;
   data: string;
-  poza: string;
+  poza: string | null;
   etichete: string[];
 }
 

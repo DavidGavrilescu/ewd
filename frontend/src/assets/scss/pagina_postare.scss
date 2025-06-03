@@ -7,10 +7,12 @@
   article {
     width: 70%;
     padding: 0px;
+    max-width: none;
 
     img {
       width: 100%;
       height: auto;
+      max-height: 400px;
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 20px;
@@ -20,13 +22,17 @@
     .huge-title {
       margin-bottom: 15px;
       font-weight: 700;
+      line-height: 1.3;
+      font-size: 32px;
     }
 
     i {
       display: block;
       margin-bottom: 20px;
-      font-size: 16px;
-      color: rgba(255, 255, 255, 0.7);
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.5;
+      font-style: italic;
     }
 
     .meta-info {
@@ -94,15 +100,18 @@
     }
 
     p {
-      margin-bottom: 15px;
-      line-height: 1.6;
+      margin-bottom: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 16px;
     }
 
     h3 {
-      margin: 10px 0 15px;
+      margin: 24px 0 16px;
       font-size: 24px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
+      line-height: 1.4;
     }
   }
 
@@ -246,13 +255,57 @@
 
   p {
     font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 20px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    text-align: justify;
+    color: rgba(255, 255, 255, 0.9);
   }
 
+  h2,
   h3 {
-    margin: 10px 0 5px;
+    margin: 32px 0 16px;
     font-size: 22px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin: 36px 0 20px;
+  }
+
+  ul,
+  ol {
+    margin: 20px 0;
+    padding-left: 20px;
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 3px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  blockquote {
+    margin: 24px 0;
+    padding: 16px 20px;
+    border-left: 4px solid rgba(255, 105, 105, 0.6);
+    background-color: rgba(40, 40, 40, 0.3);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  strong {
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  em {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   @media (max-width: 480px) {
@@ -260,13 +313,19 @@
 
     p {
       font-size: 15px;
-      line-height: 1.6;
-      margin-bottom: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      text-align: left;
     }
 
+    h2,
     h3 {
-      margin: 20px 0 10px;
+      margin: 24px 0 12px;
       font-size: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
     }
   }
 }
