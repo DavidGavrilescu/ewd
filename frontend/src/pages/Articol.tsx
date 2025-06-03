@@ -1,9 +1,5 @@
 import { useParams } from "react-router-dom";
-import {
-  BackendBaseURL,
-  CardArticol,
-  TypePostareBackend,
-} from "../components/Postari";
+import { BackendBaseURL, CardArticol, TypePostareBackend } from "../components/Postari";
 import { IPostare } from "../data/data";
 import { useEffect, useState } from "react";
 
@@ -24,7 +20,7 @@ export default function Articol() {
         setArticol([
           {
             titlu: postare.titlu,
-            poza: BackendBaseURL + postare.poza,
+            poza: postare.poza ? `${BackendBaseURL}media/${postare.poza}` : null,
             data: postare.data_creare,
             etichete: postare.etichete.split(","),
             peScurt: postare.descriere,
@@ -39,7 +35,7 @@ export default function Articol() {
         return setArticoleRecente(
           postari.map((postare) => ({
             titlu: postare.titlu,
-            poza: BackendBaseURL + postare.poza,
+            poza: postare.poza ? `${BackendBaseURL}media/${postare.poza}` : null,
             data: postare.data_creare,
             etichete: postare.etichete.split(","),
             peScurt: postare.descriere,
@@ -52,6 +48,30 @@ export default function Articol() {
 
   const articolObj = articol && articol.length > 0 ? articol[0] : null;
   const { poza, titlu, peScurt, data, etichete, continut } = articolObj || {};
+
+  const formatareData = (dataString: string) => {
+    const data = new Date(dataString);
+    const acum = new Date();
+    const diferenta = acum.getTime() - data.getTime();
+    const zile = Math.floor(diferenta / (1000 * 60 * 60 * 24));
+    
+    if (zile === 0) {
+      return "Azi";
+    } else if (zile === 1) {
+      return "Ieri";
+    } else if (zile < 7) {
+      return `Acum ${zile} zile`;
+    } else if (zile < 30) {
+      const saptamani = Math.floor(zile / 7);
+      return saptamani === 1 ? "Acum o saptamana" : `Acum ${saptamani} saptamani`;
+    } else {
+      return data.toLocaleDateString("ro-RO", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    }
+  };
 
   useEffect(() => {
     if (titlu) {
@@ -73,7 +93,7 @@ export default function Articol() {
           {data && (
             <div className="data-publicare">
               {IconitaData()}
-              <span>{data}</span>
+              <span>{formatareData(data)}</span>
             </div>
           )}
 
@@ -91,10 +111,7 @@ export default function Articol() {
         </div>
 
         <hr />
-        <section
-          className="continut-postare"
-          dangerouslySetInnerHTML={{ __html: continut || "" }}
-        />
+        <section className="continut-postare" dangerouslySetInnerHTML={{ __html: continut || "" }} />
       </article>
       <aside>
         <h3>Articole recente</h3>

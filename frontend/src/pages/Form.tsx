@@ -206,7 +206,7 @@ export default function Form() {
                     Tehnici avansate de somn (18+ ore)
                   </option>
                   <option value="jucarii">Jucarii care merita distruse</option>
-                  <option value="stapani">Cum sa-ti dresezi stapanul</option>
+                  <option value="sefi">Cum sa-ti dresezi seful</option>
                   <option value="teritoriu">
                     Marcarea teritoriului pentru incepatori
                   </option>
@@ -215,7 +215,7 @@ export default function Form() {
 
               <div className="form-group">
                 <label htmlFor="pisici">
-                  Numarul de pisici care te stapanesc
+                  Numarul de pisici care te conduc
                 </label>
                 <div className="radio-group">
                   <label className="radio-label">
@@ -226,7 +226,7 @@ export default function Form() {
                       checked={formData.pisici === "0"}
                       onChange={handleRadioChange}
                     />
-                    <span>0 (dar vreau sa fiu stapanit)</span>
+                    <span>0 (dar vreau sa fiu condus)</span>
                   </label>
                   <label className="radio-label">
                     <input
@@ -236,7 +236,7 @@ export default function Form() {
                       checked={formData.pisici === "1"}
                       onChange={handleRadioChange}
                     />
-                    <span>1 (am un stapan)</span>
+                    <span>1 (am un sef)</span>
                   </label>
                   <label className="radio-label">
                     <input

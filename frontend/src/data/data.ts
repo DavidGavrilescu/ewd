@@ -99,3 +99,10 @@ export interface IPostare {
   poza: string;
   etichete: string[];
 }
+
+export interface IArticol {
+  title: string;
+  poza: string | null;
+  link: string;
+  summary?: string;
+}

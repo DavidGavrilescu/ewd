@@ -22,9 +22,7 @@ export const CardArticol = ({ title, poza, link }: IArticol) => {
     <div className="card" onClick={gotoArticle}>
       {poza && <img src={poza} alt={title} />}
       <h4>{title}</h4>
-      <span className="emoji">
-        {animalEmojis[Math.floor(Math.random() * animalEmojis.length)]}
-      </span>
+      <span className="emoji">{animalEmojis[Math.floor(Math.random() * animalEmojis.length)]}</span>
     </div>
   );
 };
@@ -42,7 +40,7 @@ export const Postari: React.FC = () => {
           data
             .map((postare) => ({
               title: postare.titlu,
-              poza: `${BackendBaseURL}/media/${postare.poza}`,
+              poza: postare.poza ? `${BackendBaseURL}media/${postare.poza}` : null,
               link: `/articol/${postare.id}`,
               continut: postare.continut_html,
               data: postare.data_creare,
@@ -59,10 +57,8 @@ export const Postari: React.FC = () => {
     const verificaScroll = () => {
       if (!butonRef.current) return;
 
-      const scrollPosition =
-        window.scrollY || document.documentElement.scrollTop;
-      const bottomPosition =
-        document.documentElement.scrollHeight - window.innerHeight - 300;
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+      const bottomPosition = document.documentElement.scrollHeight - window.innerHeight - 300;
 
       if (scrollPosition > 300 && scrollPosition > bottomPosition) {
         butonRef.current.classList.add("vizibil");
@@ -92,8 +88,7 @@ export const Postari: React.FC = () => {
     (articol) =>
       textCautare === "" ||
       articol.title.toLowerCase().includes(textCautare.toLowerCase()) ||
-      (articol.summary &&
-        articol.summary.toLowerCase().includes(textCautare.toLowerCase()))
+      (articol.summary && articol.summary.toLowerCase().includes(textCautare.toLowerCase()))
   );
 
   return (
@@ -113,22 +108,13 @@ export const Postari: React.FC = () => {
 
       <section className="card-container">
         {articoleFiltrate.length > 0 ? (
-          articoleFiltrate.map((articol, key) => (
-            <CardArticol key={key} {...articol} />
-          ))
+          articoleFiltrate.map((articol, key) => <CardArticol key={key} {...articol} />)
         ) : (
-          <p className="no-results">
-            Nu am gasit articole care sa contina "{textCautare}"
-          </p>
+          <p className="no-results">Nu am gasit articole care sa contina "{textCautare}"</p>
         )}
       </section>
 
-      <button
-        ref={butonRef}
-        className="buton-back-to-top"
-        onClick={scrollToTop}
-        aria-label="Inapoi sus"
-      >
+      <button ref={butonRef} className="buton-back-to-top" onClick={scrollToTop} aria-label="Inapoi sus">
         ↑
       </button>
     </Fragment>

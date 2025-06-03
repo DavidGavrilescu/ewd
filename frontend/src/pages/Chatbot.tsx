@@ -26,48 +26,48 @@ const Chatbot: React.FC = () => {
           text: "Energic/Jucaus",
           cuvinteCheie: ["zoomies", "nebun", "tornado"],
           raspuns:
-            "Mrrrow! Asta e spiritul! Sa alergi prin casa la 3 dimineata e cea mai buna modalitate sa-ti tii oamenii treji si sa le amintesti cine e stapanul casei.",
+            "Miau energic! Alergi prin casa noaptea? Excelent! E cea mai buna metoda sa-ti tii oamenii treji si sa le amintesti ca apartamentul e si al nostru.",
         },
         {
           text: "Lenes/Somnoros",
           cuvinteCheie: ["mormoloc", "potato", "molcom", "zzz"],
           raspuns:
-            "Purrrrr... esti un felin intelept. Un pisoi odihnit e un pisoi fericit. Recomand 16-20 ore de somn zilnic, preferabil pe hainele proaspat spalate ale stapanului.",
+            "Purrrr... esti o pisica inteleapta. Somnul e important - recomand 16-18 ore pe zi, preferabil pe hainele curate ale sefului.",
         },
         {
           text: "Morocanos",
           cuvinteCheie: ["meowrocanos"],
           raspuns:
-            "HSSSSS! Te inteleg perfect. Uneori umanii nu merita afectiunea noastra. Incearca sa le zgarii canapeaua sau sa le impingi ceva de pe masa - functioneaza de minune pentru a-ti exprima nemultumirea.",
+            "Hsss! Te inteleg. Uneori oamenii nu merita atentia noastra. Incearca sa le zgarii putin canapeaua - e o modalitate clasica de comunicare felina.",
         },
       ],
     },
     {
-      text: "Ce preferi sa faci cand stapanul tau nu e atent?",
+      text: "Ce preferi sa faci cand seful tau nu e atent?",
       sugestii: [
         {
           text: "Distrug lucruri",
           cuvinteCheie: ["haos", "apocalipsa", "bomba", "ninja"],
           raspuns:
-            "Miau-ha-ha! Arta distrugerii e specialitatea felinelor! Zgariatul mobilei si daramatul obiectelor fragile sunt moduri excelente de a-ti aminti stapanului ca spatiul e de fapt al tau.",
+            "Miau amuzat! Zgariatul mobilei e o arta antica felina. E o modalitate naturala de a-ti marca teritoriul si de a-ti ascu ghearele.",
         },
         {
           text: "Dorm pe lucrurile lui",
           cuvinteCheie: ["blana", "caldut", "sforr", "covrig"],
           raspuns:
-            "Mrrrr... nimic nu se compara cu dormitul pe hainele negre ale stapanului cand porti blana alba! Sau pe laptopul cald - asta e un loc perfect pentru siesta.",
+            "Mrrr... nimic nu e mai confortabil decat hainele calde ale sefului! Laptopul cald e de asemenea un loc excelent pentru o pauza.",
         },
         {
           text: "Explorez locuri interzise",
           cuvinteCheie: ["spion", "ninja"],
           raspuns:
-            "Esti o pisica dupa inima mea! Sa te strecori in locuri interzise e un drept din nastere al oricarei feline. Nu exista usa inchisa care sa nu poata fi deschisa cu suficienta perseverenta si gherutele potrivite!",
+            "Miau explorator! Sa te strecori in locuri noi e un instinct natural felin. Nu exista usa care sa nu poata fi deschisa cu putina perseverenta!",
         },
         {
           text: "Vanez",
           cuvinteCheie: ["soricel", "papuc", "vanatoare"],
           raspuns:
-            "Ah, nobila arta a vanatorii! Fie ca vanezi soricei, insecte sau doar jucariile alea enervante cu clopotei - esti un adevarat razboinic felin! Nu uita sa aduci trofeele de vanatoare in pat la stapan.",
+            "Miau vanatoare! Fie ca vanezi insecte sau jucarii, instinctul de vanatoare e puternic la noi. Uneori aducem si 'cadouri' in casa.",
         },
       ],
     },
@@ -78,13 +78,13 @@ const Chatbot: React.FC = () => {
           text: "Le aduc 'cadouri'",
           cuvinteCheie: ["surpriza", "soarece"],
           raspuns:
-            "Miau de apreciere! Nimic nu spune 'te iubesc' mai bine decat un soricel adus in pat la 4 dimineata. Umanii ar trebui sa fie mai recunoscatori pentru talentele noastre de vanatori!",
+            "Miau de apreciere! Un soricel adus in casa e un semn de afectiune felina. Oamenii nu intotdeauna apreciaza gestul, dar e din dragoste!",
         },
         {
           text: "Torc si fac biscuiti",
           cuvinteCheie: ["drrrr", "masajist", "framant"],
           raspuns:
-            "Purrrrrrr... Torsul si facutul de biscuiti sunt metode clasice de a-ti arata afectiunea. Bonus daca reusesti sa freci nasul umed de fata lor cand dorm profund.",
+            "Purrrr... Torsul si masajul cu labele sunt clasici. Bonus daca reusesti sa le atingi nasul cu al tau cand se trezesc.",
         },
         {
           text: "Ii ignor complet",
@@ -113,7 +113,7 @@ const Chatbot: React.FC = () => {
           text: "Mancarea umana",
           cuvinteCheie: ["mancare umana"],
           raspuns:
-            "Miau smecher! De ce sa mananci din castronul tau cand poti sa furi direct de pe farfuria stapanului? Cu cat te cearta mai mult, cu atat e mai dulce victoria!",
+            "Miau smecher! De ce sa mananci din castronul tau cand poti sa furi direct de pe farfuria sefului? Cu cat te cearta mai mult, cu atat e mai dulce victoria!",
         },
         {
           text: "Orice misca",
@@ -212,12 +212,12 @@ const Chatbot: React.FC = () => {
           text: "",
           trimis: false,
           inScriere: true,
-          textComplet: "Miau! Bine ai venit la Chatbot-ul Felin!",
+          textComplet: "Miau! Salut, om! Sunt MiauBot-ul tau digital.",
         },
       ]);
 
       setTimeout(() => {
-        afiseazaTextProgresiv("Miau! Bine ai venit la Chatbot-ul Felin!");
+        afiseazaTextProgresiv("Miau! Salut, om! Sunt MiauBot-ul tau digital.");
       }, 500);
     }
   }, [mesaje.length, stadiiInitializare.mesajBunVenit]);
