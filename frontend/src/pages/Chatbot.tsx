@@ -20,7 +20,7 @@ interface Intrebare {
 const Chatbot: React.FC = () => {
   const intrebari: Intrebare[] = [
     {
-      text: "Miau! Ce tip de pisica esti astazi?",
+      text: "Ce tip de pisica esti astazi?",
       sugestii: [
         {
           text: "Energic/Jucaus",
@@ -47,9 +47,9 @@ const Chatbot: React.FC = () => {
       sugestii: [
         {
           text: "Distrug lucruri",
-          cuvinteCheie: ["haos", "apocalipsa", "bomba", "ninja"],
+          cuvinteCheie: ["haos", "distrug", "bomba", "ninja"],
           raspuns:
-            "Miau amuzat! Zgariatul mobilei e o arta antica felina. E o modalitate naturala de a-ti marca teritoriul si de a-ti ascu ghearele.",
+            "Miau! Zgariatul mobilei e o arta antica felina. E o modalitate naturala de a-ti marca teritoriul si de a-ti ascu ghearele.",
         },
         {
           text: "Dorm pe lucrurile lui",
@@ -67,7 +67,7 @@ const Chatbot: React.FC = () => {
           text: "Vanez",
           cuvinteCheie: ["soricel", "papuc", "vanatoare"],
           raspuns:
-            "Miau vanatoare! Fie ca vanezi insecte sau jucarii, instinctul de vanatoare e puternic la noi. Uneori aducem si 'cadouri' in casa.",
+            "Miau! Fie ca vanezi insecte sau jucarii, instinctul de vanatoare e puternic la noi. Uneori aducem si 'cadouri' in casa.",
         },
       ],
     },
@@ -90,36 +90,36 @@ const Chatbot: React.FC = () => {
           text: "Ii ignor complet",
           cuvinteCheie: ["fantoma", "invizibil"],
           raspuns:
-            "MIAU de aprobare! Un maestru al psihologiei inverse! Cu cat ii ignori mai mult, cu atat vor incerca mai tare sa castige afectiunea ta. Asta e calea felinelor superioare.",
+            "Miau de aprobare! Psihologia inversa functioneaza de minune. Cu cat ii ignori mai mult, cu atat vor incerca mai tare sa castige atentia ta.",
         },
         {
           text: "Le distrug bunurile",
-          cuvinteCheie: ["demolator", "calamitate", "sabotaj"],
+          cuvinteCheie: ["zgarii", "calamitate", "sabotaj"],
           raspuns:
-            "Hsss-ha-ha! Ce modalitate creativa de a-ti arata afectiunea! Nimic nu spune 'esti al meu' mai clar decat o canapea nou zgariata. Plus ca le redecoram casa intr-un stil autentic felin!",
+            "Miau! Zgariatul mobilei e arta de a-ti marca teritoriul. Si mai ales ca le redecoram casa in stilul nostru personal.",
         },
       ],
     },
     {
-      text: "Ce fel de mancare preferi, nobile felin?",
+      text: "Ce fel de mancare preferi?",
       sugestii: [
         {
           text: "Doar hrana premium",
-          cuvinteCheie: ["caviar", "snob", "bogatash", "pretentios"],
+          cuvinteCheie: ["caviar", "snob", "pretentios", "scump"],
           raspuns:
-            "Miau aristocratic! Doar ce e mai bun pentru noi, regii si reginele casei. Daca nu e ambalat in conserve de aur si nu costa cat rata la apartament, nici nu ma deranjez sa adulmec.",
+            "Miau! Calitatea conteaza, nu-i asa? Daca nu e destul de buna pentru gusturile noastre rafinate, nu merita.",
         },
         {
           text: "Mancarea umana",
           cuvinteCheie: ["mancare umana"],
           raspuns:
-            "Miau smecher! De ce sa mananci din castronul tau cand poti sa furi direct de pe farfuria sefului? Cu cat te cearta mai mult, cu atat e mai dulce victoria!",
+            "Miau! De ce sa mananci din castronul tau cand farfuria sefului pare mult mai interesanta? Interesant cum se enerveaza...",
         },
         {
           text: "Orice misca",
-          cuvinteCheie: ["psihopat", "ucigator", "pradator"],
+          cuvinteCheie: ["vanatoare", "ucigator", "pradator"],
           raspuns:
-            "MIAU feroce! Un adevarat vanatoare! Nimic nu se compara cu gustul proaspat al unei pradei prinse de tine insuti. Bonus pentru aducerea ei in casa si eliberarea ei in dormitor!",
+            "Miau! Instinctul de vanatoare e puternic la noi. Fie ca vanezi insecte sau jucarii, e in natura noastra. Uneori chiar aducem 'cadouri' in casa.",
         },
       ],
     },
@@ -312,8 +312,8 @@ const Chatbot: React.FC = () => {
         const raspunsuriGenerice = [
           "Mrrrow? Nu sunt sigur ca am inteles. Poate ai uitat sa adaugi 'miau' la sfarsit?",
           "Purrrr... Interesant punct de vedere pentru o fiinta fara blana si coada.",
-          "HSSSS! Ce limbaj ciudat folosesti. Poate ar trebui sa incerci sa comunici in Felina.",
-          "Miau confuz! Nu sunt sigur ce incerci sa-mi spui, dar iti voi aduce un soarece mort in semn de apreciere.",
+          "Hsss! Ce limbaj ciudat folosesti. Poate ar trebui sa incerci sa comunici in Felina.",
+          "Miau confuz! Nu sunt sigur ce incerci sa-mi spui, dar apreciez tentativa.",
         ];
 
         const raspunsGeneric = raspunsuriGenerice[Math.floor(Math.random() * raspunsuriGenerice.length)];
@@ -374,7 +374,7 @@ const Chatbot: React.FC = () => {
     <div className="chatbot-container">
       <div className="chatbot-header">
         <h1>MiauChat 🐱</h1>
-        <p>Conversati cu o pisica digitala care raspunde la toate nevoile tale feline</p>
+        <p>Conversatie cu o pisica digitala care iti raspunde la intrebari</p>
       </div>
 
       <div className="chatbot-main">

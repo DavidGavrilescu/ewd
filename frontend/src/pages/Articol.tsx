@@ -20,7 +20,7 @@ export default function Articol() {
         setArticol([
           {
             titlu: postare.titlu,
-            poza: postare.poza ? `${BackendBaseURL}media/${postare.poza}` : null,
+            poza: postare.poza ? `${BackendBaseURL}${postare.poza}` : null,
             data: postare.data_creare,
             etichete: postare.etichete.split(","),
             peScurt: postare.descriere,
@@ -54,7 +54,7 @@ export default function Articol() {
     const acum = new Date();
     const diferenta = acum.getTime() - data.getTime();
     const zile = Math.floor(diferenta / (1000 * 60 * 60 * 24));
-    
+
     if (zile === 0) {
       return "Azi";
     } else if (zile === 1) {

@@ -7,7 +7,7 @@
   article {
     width: 70%;
     padding: 0px;
-    
+
     img {
       width: 100%;
       height: auto;
@@ -16,26 +16,26 @@
       margin-bottom: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    
+
     .huge-title {
       margin-bottom: 15px;
       font-weight: 700;
     }
-    
+
     i {
       display: block;
       margin-bottom: 20px;
       font-size: 16px;
       color: rgba(255, 255, 255, 0.7);
     }
-    
+
     .meta-info {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 20px;
       margin: 20px 0;
-      
+
       .data-publicare {
         display: flex;
         align-items: center;
@@ -46,25 +46,25 @@
         font-size: 14px;
         color: rgba(255, 255, 255, 0.8);
         border: 1px solid rgba(255, 255, 255, 0.05);
-        
+
         svg {
           color: rgba(255, 255, 255, 0.7);
         }
-        
+
         span {
           font-weight: 500;
         }
       }
     }
-    
+
     .etichete-container {
       margin: 0;
-      
+
       .etichete-lista {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        
+
         .eticheta {
           display: inline-block;
           padding: 5px 12px;
@@ -75,7 +75,7 @@
           font-weight: 500;
           color: rgba(255, 255, 255, 0.9);
           transition: all 0.2s ease;
-          
+
           &:hover {
             background-color: rgba(255, 105, 105, 0.2);
             border-color: rgba(255, 105, 105, 0.3);
@@ -85,21 +85,21 @@
         }
       }
     }
-    
+
     hr {
       margin: 25px 0;
       border: none;
       height: 1px;
       background: rgba(255, 255, 255, 0.1);
     }
-    
+
     p {
       margin-bottom: 15px;
       line-height: 1.6;
     }
-    
+
     h3 {
-      margin: 30px 0 15px;
+      margin: 10px 0 15px;
       font-size: 24px;
       font-weight: 600;
       color: rgba(255, 255, 255, 0.9);
@@ -115,7 +115,7 @@
     background-color: rgba(50, 50, 50, 0.1);
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    
+
     h3 {
       margin-top: 0;
       margin-bottom: 20px;
@@ -124,7 +124,7 @@
       padding-bottom: 10px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .card-container {
       margin-bottom: 0;
     }
@@ -142,18 +142,18 @@
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     article {
       img {
         margin-bottom: 15px;
       }
-      
+
       .huge-title {
         font-size: 26px;
         line-height: 1.3;
         margin-bottom: 10px;
       }
-      
+
       i {
         font-size: 15px;
         margin-bottom: 15px;
@@ -166,14 +166,14 @@
       position: relative;
       top: 0;
     }
-    
+
     .meta-info {
       flex-direction: column;
       align-items: flex-start;
       gap: 12px;
       margin: 15px 0;
     }
-    
+
     hr {
       margin: 20px 0;
     }
@@ -183,55 +183,55 @@
     margin-top: 50px;
     padding: 0 10px;
     gap: 25px;
-    
+
     article {
       .huge-title {
         font-size: 24px;
       }
-      
+
       i {
         font-size: 14px;
       }
-      
+
       .meta-info {
         gap: 10px;
         margin: 12px 0;
-        
+
         .data-publicare {
           padding: 4px 10px;
           font-size: 13px;
-          
+
           svg {
             width: 14px;
             height: 14px;
           }
         }
       }
-      
+
       .etichete-lista {
         gap: 6px;
-        
+
         .eticheta {
           padding: 4px 10px;
           font-size: 12px;
         }
       }
-      
+
       h3 {
         font-size: 20px;
         margin: 20px 0 10px;
       }
-      
+
       p {
         font-size: 15px;
         line-height: 1.5;
         margin-bottom: 12px;
       }
     }
-    
+
     aside {
       padding: 12px;
-      
+
       h3 {
         font-size: 18px;
         margin-bottom: 12px;
@@ -241,29 +241,29 @@
 }
 
 .continut-postare {
-  padding: 10px 0;
+  padding: 0px 0;
   width: 100%;
-  
+
   p {
     font-size: 16px;
     line-height: 1.7;
     margin-bottom: 20px;
   }
-  
+
   h3 {
-    margin: 30px 0 15px;
+    margin: 10px 0 5px;
     font-size: 22px;
   }
-  
+
   @media (max-width: 480px) {
     padding: 5px 0;
-    
+
     p {
       font-size: 15px;
       line-height: 1.6;
       margin-bottom: 15px;
     }
-    
+
     h3 {
       margin: 20px 0 10px;
       font-size: 20px;

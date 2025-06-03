@@ -28,11 +28,7 @@ export default function Form() {
   const [erori, setErori] = useState<Erori>({});
   const [trimis, setTrimis] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -90,23 +86,20 @@ export default function Form() {
 
     if (valideazaFormular()) {
       try {
-        const raspuns = await fetch(
-          "http://127.0.0.1:8000/api/mesaje-contact/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              nume: formData.nume,
-              email: formData.email,
-              subiect: formData.subiect,
-              numar_pisici: parseInt(formData.pisici) || 0,
-              mesaj: formData.mesaj,
-              abonat: formData.newsletter,
-            }),
-          }
-        );
+        const raspuns = await fetch("http://127.0.0.1:8000/api/mesaje-contact/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nume: formData.nume,
+            email: formData.email,
+            subiect: formData.subiect,
+            numar_pisici: parseInt(formData.pisici) || 0,
+            mesaj: formData.mesaj,
+            abonat: formData.newsletter,
+          }),
+        });
 
         if (!raspuns.ok) {
           throw new Error("Eroare la trimiterea mesajului.");
@@ -122,33 +115,27 @@ export default function Form() {
   };
 
   const afiseazaEroare = (numeInput: string) => {
-    return erori[numeInput] ? (
-      <span className="eroare">{erori[numeInput]}</span>
-    ) : null;
+    return erori[numeInput] ? <span className="eroare">{erori[numeInput]}</span> : null;
   };
 
   return (
     <article id="formular-contact-page">
       <div className="formular-header">
         <h2 className="page-title">Trimite-ne un Miau!</h2>
-        <p className="subtitle">
-          Pisica ta are o intrebare? Vrei sa ne trimiti o minge de lana?
-        </p>
+        <p className="subtitle">Pisica ta are o intrebare? Vrei sa ne trimiti o minge de lana?</p>
       </div>
 
       <div className="formular-container">
         <div className="formular-text">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Salut, om! Ai ceva de spus pisicilor din echipa noastra? Poate vrei sa ne plangesti ca nu-ti raspundem la
+            mesaje sau ca ignoram jucariile scumpe pe care ni le cumperi? Sau poate vrei sa ne feliciti pentru ca am
+            spart iar ceva prin casa?
           </p>
           <p>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            Completeaza formularul de mai jos si poate, daca suntem in dispozitie buna si nu dormim, o sa-ti raspundem.
+            Nu promitem nimic - suntem pisici, nu servitori. Dar daca mesajul tau e destul de interesant (sau contine
+            promisiuni de conserve), s-ar putea sa-ti acordam atentia noastra.
           </p>
         </div>
 
@@ -156,10 +143,7 @@ export default function Form() {
           {trimis ? (
             <div className="mesaj-succes">
               <h3>Miau! Mesajul a fost trimis cu succes!</h3>
-              <p>
-                Pisicile noastre vor analiza mesajul tau si vor reveni cu un
-                raspuns cat de curand.
-              </p>
+              <p>Pisicile noastre vor analiza mesajul tau si vor reveni cu un raspuns cat de curand.</p>
               <div className="success-icon">🐾</div>
             </div>
           ) : (
@@ -192,31 +176,18 @@ export default function Form() {
 
               <div className="form-group">
                 <label htmlFor="subiect">Ce subiecte te intereseaza?</label>
-                <select
-                  id="subiect"
-                  name="subiect"
-                  value={formData.subiect}
-                  onChange={handleChange}
-                >
+                <select id="subiect" name="subiect" value={formData.subiect} onChange={handleChange}>
                   <option value="">-- Alege un subiect --</option>
-                  <option value="mancare">
-                    Mancarea si conservele preferate
-                  </option>
-                  <option value="somn">
-                    Tehnici avansate de somn (18+ ore)
-                  </option>
+                  <option value="mancare">Mancarea si conservele preferate</option>
+                  <option value="somn">Tehnici avansate de somn (18+ ore)</option>
                   <option value="jucarii">Jucarii care merita distruse</option>
                   <option value="sefi">Cum sa-ti dresezi seful</option>
-                  <option value="teritoriu">
-                    Marcarea teritoriului pentru incepatori
-                  </option>
+                  <option value="teritoriu">Marcarea teritoriului pentru incepatori</option>
                 </select>
               </div>
 
               <div className="form-group">
-                <label htmlFor="pisici">
-                  Numarul de pisici care te conduc
-                </label>
+                <label htmlFor="pisici">Numarul de pisici care te conduc</label>
                 <div className="radio-group">
                   <label className="radio-label">
                     <input
@@ -282,21 +253,11 @@ export default function Form() {
                     checked={formData.newsletter}
                     onChange={handleCheckboxChange}
                   />
-                  <span>
-                    Vreau sa ma abonez la Meowsletter-ul vostru saptamanal
-                  </span>
+                  <span>Vreau sa ma abonez la Meowsletter-ul vostru saptamanal</span>
                 </label>
                 <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    name="terms"
-                    checked={formData.terms}
-                    onChange={handleCheckboxChange}
-                  />
-                  <span>
-                    Sunt de acord cu termenii si conditiile (pisica mea a citit
-                    si a aprobat) *
-                  </span>
+                  <input type="checkbox" name="terms" checked={formData.terms} onChange={handleCheckboxChange} />
+                  <span>Sunt de acord cu termenii si conditiile (pisica mea a citit si a aprobat) *</span>
                 </label>
                 {afiseazaEroare("terms")}
               </div>
@@ -307,8 +268,8 @@ export default function Form() {
               </button>
 
               <p className="form-note">
-                * Campurile marcate sunt obligatorii (la fel cum pisicile
-                considera obligatoriu sa te trezeasca la 4 dimineata)
+                * Campurile marcate sunt obligatorii (la fel cum pisicile considera obligatoriu sa te trezeasca la 4
+                dimineata)
               </p>
             </form>
           )}
